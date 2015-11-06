@@ -5,12 +5,9 @@
     <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no, width=device-width">
     <title></title>
 
-    <link href="lib/ionic/css/ionic.css" rel="stylesheet">
-    <link href="css/style.css" rel="stylesheet">
 
-    <!-- IF using Sass (run gulp sass first), then uncomment below and remove the CSS includes above
+
     <link href="css/ionic.app.css" rel="stylesheet">
-    -->
 
     <!-- ionic/angularjs js -->
     <script src="lib/ionic/js/ionic.bundle.js"></script>
@@ -19,11 +16,16 @@
     <script src="cordova.js"></script>
 
     <!-- your app's js -->
-    <script src="js/app.js"></script>
-    <script src="js/controllers.js"></script>
+    <script src="modules/core/core.module.js"></script>
+    <script src="modules/core/core.controller.js"></script>
+
+    <!-- login module -->
+    <link href="modules/login/login.css" rel="stylesheet">
+    <script src="modules/login/loginController.js"></script>
+
   </head>
 
-  <body ng-app="starter">
+  <body ng-app="core.module">
     <ion-nav-view></ion-nav-view>
   </body>
 </html>
