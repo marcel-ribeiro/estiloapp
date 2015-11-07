@@ -1,4 +1,4 @@
-angular.module('core.module', ['ionic', 'core.controller'])
+angular.module('core.module', ['ionic', 'pascalprecht.translate', 'core.controller'])
 
   .run(function ($ionicPlatform) {
     $ionicPlatform.ready(function () {
@@ -15,6 +15,21 @@ angular.module('core.module', ['ionic', 'core.controller'])
       }
     });
   })
+
+  .config(['$translateProvider', function ($translateProvider) {
+    $translateProvider.translations('en', {
+      'TITLE': 'Hello',
+      'FOO': 'This is a paragraph'
+    });
+
+    $translateProvider.translations('de', {
+      'TITLE': 'Hallo',
+      'FOO': 'Dies ist ein Absatz'
+    });
+
+    $translateProvider.preferredLanguage('en');
+    $translateProvider.fallbackLanguage('en');
+  }])
 
   .config(function ($stateProvider, $urlRouterProvider) {
     $stateProvider
