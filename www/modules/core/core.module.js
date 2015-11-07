@@ -16,13 +16,31 @@ angular.module('core.module', ['ionic', 'pascalprecht.translate', 'core.controll
     });
   })
 
-  .config(['$translateProvider', function ($translateProvider) {
-    $translateProvider.translations('en', translations_en);
-    $translateProvider.translations('de', translations_de);
-    $translateProvider.translations('pt', translations_pt);
-    $translateProvider.preferredLanguage('en');
-    $translateProvider.fallbackLanguage('en');
-  }])
+  //.config(['$translateProvider', function ($translateProvider) {
+  //  $translateProvider.translations('en', translations_en);
+  //  $translateProvider.translations('de', translations_de);
+  //  $translateProvider.translations('pt', translations_pt);
+  //  $translateProvider.preferredLanguage('en');
+  //  $translateProvider.fallbackLanguage('en');
+  //}])
+
+  .config(function($ionicConfigProvider, $translateProvider) {
+
+    $translateProvider
+      .useStaticFilesLoader({
+        prefix: 'modules/core/translate/',
+        suffix: '.json'
+      })
+      .registerAvailableLanguageKeys(['en', 'pt', 'de'], {
+        'en': 'en', 'en_GB': 'en', 'en_US': 'en',
+        'pt': 'pt', 'pt_BR': 'pt', 'pt_PT': 'pt',
+        'de': 'de', 'de_DE': 'de', 'de_CH': 'de'
+      })
+      .preferredLanguage('en')
+      .fallbackLanguage('en')
+      .determinePreferredLanguage()
+      .useSanitizeValueStrategy('escapeParameters');
+  })
 
   .config(function ($stateProvider, $urlRouterProvider) {
     $stateProvider
