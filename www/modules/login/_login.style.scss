@@ -1,0 +1,11 @@
+.login-bg {
+  background: url($bg-login-img) no-repeat center center fixed;
+  background-size: cover;
+}
+
+//Separators
+.separator-light{
+  width: 80%;
+  border-top: transparent;
+  border-bottom-color: $light;
+}
