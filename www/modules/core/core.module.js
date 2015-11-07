@@ -17,16 +17,9 @@ angular.module('core.module', ['ionic', 'pascalprecht.translate', 'core.controll
   })
 
   .config(['$translateProvider', function ($translateProvider) {
-    $translateProvider.translations('en', {
-      'TITLE': 'Hello',
-      'FOO': 'This is a paragraph'
-    });
-
-    $translateProvider.translations('de', {
-      'TITLE': 'Hallo',
-      'FOO': 'Dies ist ein Absatz'
-    });
-
+    $translateProvider.translations('en', translations_en);
+    $translateProvider.translations('de', translations_de);
+    $translateProvider.translations('pt', translations_pt);
     $translateProvider.preferredLanguage('en');
     $translateProvider.fallbackLanguage('en');
   }])
