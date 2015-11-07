@@ -1,6 +1,6 @@
 angular.module('core.controller', ['core.constants'])
 
-  .controller('core.controller', function ($scope, $ionicModal, $timeout, $translate, LOCALES) {
+  .controller('core.controller', function ($scope, $ionicModal, $timeout) {
 
     // With the new view caching in Ionic, Controllers are only called
     // when they are recreated or on app start, instead of every page change.
@@ -39,17 +39,9 @@ angular.module('core.controller', ['core.constants'])
         $scope.closeLogin();
       }, 1000);
     };
-
-    $scope.switchLanguage = function (key) {
-      $translate.use(key);
-    };
-
-
-    $scope.locales = LOCALES;
   })
 
-
-  .controller('PlaylistsCtrl', function ($scope) {
+.controller('PlaylistsCtrl', function ($scope) {
     $scope.playlists = [
       {title: 'Reggae', id: 1},
       {title: 'Chill', id: 2},
@@ -62,3 +54,5 @@ angular.module('core.controller', ['core.constants'])
 
   .controller('PlaylistCtrl', function ($scope, $stateParams) {
   });
+
+

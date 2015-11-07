@@ -1,4 +1,4 @@
-angular.module('core.module', ['ionic', 'pascalprecht.translate', 'core.constants', 'core.controller'])
+angular.module('core.module', ['ionic', 'pascalprecht.translate', 'core.constants', 'core.controller', 'translate.controller'])
 
   .run(function ($ionicPlatform) {
     $ionicPlatform.ready(function () {
@@ -60,7 +60,8 @@ angular.module('core.module', ['ionic', 'pascalprecht.translate', 'core.constant
         url: '/translate',
         views: {
           'menuContent': {
-            templateUrl: 'modules/starter/translate.html'
+            templateUrl: 'modules/translate/translate.html',
+            controller: 'translate.controller'
           }
         }
       })

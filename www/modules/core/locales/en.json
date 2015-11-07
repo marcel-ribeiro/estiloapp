@@ -9,5 +9,6 @@
   "MENU_PLAYLISTS": "Playlists",
   "MENU_LOGOUT": "Logout",
 
-  "TRANSLATE_LANGUAGE_LABEL": "Language"
+  "TRANSLATE_LANGUAGE_LABEL": "Language",
+  "TRANSLATE_TITLE": "Translate"
 }
