@@ -1,11 +1,56 @@
 .login-bg {
-  background: url($bg-login-img) no-repeat center center fixed;
+  //background: url($bg-login-img) no-repeat center center fixed;
   background-size: cover;
+  background-color: $dark;
+}
+
+
+.app-logo{
+  padding-top: 5em;
+  padding-bottom: 5em;
 }
 
 //Separators
-.separator-light{
-  width: 80%;
-  border-top: transparent;
-  border-bottom-color: $light;
+.separator-light {
+  width:80%;
+  margin: 2em 10%;
+  border-bottom: 1px solid $light;
+  line-height: 0.1em;
+  text-align:center;
+  font-size: 80%;
+  color: $light;
+}
+.separator-light span{
+  background-color: $dark;
+  padding: 5px;
+}
+
+//button-social-networks
+.button-social-networks{
+  width: 70%;
+  text-align: left;
+}
+
+.button-email{
+  @extend .button-royal;
+}
+.button-email.icon-left:before{
+  padding-right: 0.6em;
+  padding-left: 0.5em;
+}
+
+.button-facebook{
+  @extend .button-positive;
+}
+.button-facebook.icon-left:before{
+  padding-right: 0.6em;
+  padding-left: 0.5em;
+}
+
+.button-googleplus{
+  @extend .button-assertive;
+}
+.button-googleplus.icon-left:before{
+  padding-right: 0.3em;
+  padding-left: 0.3em;
 }

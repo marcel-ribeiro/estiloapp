@@ -10,5 +10,14 @@
   "MENU_LOGOUT": "Logout",
 
   "TRANSLATE_LANGUAGE_LABEL": "Language",
-  "TRANSLATE_TITLE": "Translate"
+  "TRANSLATE_TITLE": "Translate",
+
+  "LOGIN_TITLE": "Login",
+  "LOGIN_WITH_FACEBOOK": "Login with facebook",
+  "LOGIN_WITH_GOOGLEPLUS": "Login with google",
+  "LOGIN_WITH_EMAIL": "Login with email",
+
+  "APP_NAME": "Estilo"
+
+
 }

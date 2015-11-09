@@ -7976,30 +7976,30 @@ progress {
         background-color: #b2b2b2;
         box-shadow: none;
         color: #fff; }
-  .button.button-positive {
+  .button.button-positive, .button.button-facebook {
     border-color: #0c60ee;
     background-color: #387ef5;
     color: #fff; }
-    .button.button-positive:hover {
+    .button.button-positive:hover, .button.button-facebook:hover {
       color: #fff;
       text-decoration: none; }
-    .button.button-positive.active, .button.button-positive.activated {
+    .button.button-positive.active, .button.active.button-facebook, .button.button-positive.activated, .button.activated.button-facebook {
       border-color: #0c60ee;
       background-color: #0c60ee;
       box-shadow: inset 0 1px 4px rgba(0, 0, 0, 0.1); }
-    .button.button-positive.button-clear {
+    .button.button-positive.button-clear, .button.button-clear.button-facebook {
       border-color: transparent;
       background: none;
       box-shadow: none;
       color: #387ef5; }
-    .button.button-positive.button-icon {
+    .button.button-positive.button-icon, .button.button-icon.button-facebook {
       border-color: transparent;
       background: none; }
-    .button.button-positive.button-outline {
+    .button.button-positive.button-outline, .button.button-outline.button-facebook {
       border-color: #387ef5;
       background: transparent;
       color: #387ef5; }
-      .button.button-positive.button-outline.active, .button.button-positive.button-outline.activated {
+      .button.button-positive.button-outline.active, .button.button-outline.active.button-facebook, .button.button-positive.button-outline.activated, .button.button-outline.activated.button-facebook {
         background-color: #387ef5;
         box-shadow: none;
         color: #fff; }
@@ -8030,30 +8030,30 @@ progress {
         background-color: #11c1f3;
         box-shadow: none;
         color: #fff; }
-  .button.button-assertive {
+  .button.button-assertive, .button.button-googleplus {
     border-color: #e42112;
     background-color: #ef473a;
     color: #fff; }
-    .button.button-assertive:hover {
+    .button.button-assertive:hover, .button.button-googleplus:hover {
       color: #fff;
       text-decoration: none; }
-    .button.button-assertive.active, .button.button-assertive.activated {
+    .button.button-assertive.active, .button.active.button-googleplus, .button.button-assertive.activated, .button.activated.button-googleplus {
       border-color: #e42112;
       background-color: #e42112;
       box-shadow: inset 0 1px 4px rgba(0, 0, 0, 0.1); }
-    .button.button-assertive.button-clear {
+    .button.button-assertive.button-clear, .button.button-clear.button-googleplus {
       border-color: transparent;
       background: none;
       box-shadow: none;
       color: #ef473a; }
-    .button.button-assertive.button-icon {
+    .button.button-assertive.button-icon, .button.button-icon.button-googleplus {
       border-color: transparent;
       background: none; }
-    .button.button-assertive.button-outline {
+    .button.button-assertive.button-outline, .button.button-outline.button-googleplus {
       border-color: #ef473a;
       background: transparent;
       color: #ef473a; }
-      .button.button-assertive.button-outline.active, .button.button-assertive.button-outline.activated {
+      .button.button-assertive.button-outline.active, .button.button-outline.active.button-googleplus, .button.button-assertive.button-outline.activated, .button.button-outline.activated.button-googleplus {
         background-color: #ef473a;
         box-shadow: none;
         color: #fff; }
@@ -8111,30 +8111,30 @@ progress {
         background-color: #ffc900;
         box-shadow: none;
         color: #fff; }
-  .button.button-royal {
+  .button.button-royal, .button.button-email {
     border-color: #34737d;
     background-color: #408E9A;
     color: #fff; }
-    .button.button-royal:hover {
+    .button.button-royal:hover, .button.button-email:hover {
       color: #fff;
       text-decoration: none; }
-    .button.button-royal.active, .button.button-royal.activated {
+    .button.button-royal.active, .button.active.button-email, .button.button-royal.activated, .button.activated.button-email {
       border-color: #34737d;
       background-color: #34737d;
       box-shadow: inset 0 1px 4px rgba(0, 0, 0, 0.1); }
-    .button.button-royal.button-clear {
+    .button.button-royal.button-clear, .button.button-clear.button-email {
       border-color: transparent;
       background: none;
       box-shadow: none;
       color: #408E9A; }
-    .button.button-royal.button-icon {
+    .button.button-royal.button-icon, .button.button-icon.button-email {
       border-color: transparent;
       background: none; }
-    .button.button-royal.button-outline {
+    .button.button-royal.button-outline, .button.button-outline.button-email {
       border-color: #408E9A;
       background: transparent;
       color: #408E9A; }
-      .button.button-royal.button-outline.active, .button.button-royal.button-outline.activated {
+      .button.button-royal.button-outline.active, .button.button-outline.active.button-email, .button.button-royal.button-outline.activated, .button.button-outline.activated.button-email {
         background-color: #408E9A;
         box-shadow: none;
         color: #fff; }
@@ -9106,10 +9106,38 @@ a.button {
   /*stable*/ }
 
 .login-bg {
-  background: url("../img/login-bg.jpg") no-repeat center center fixed;
-  background-size: cover; }
+  background-size: cover;
+  background-color: #444; }
+
+.app-logo {
+  padding-top: 5em;
+  padding-bottom: 5em; }
 
 .separator-light {
   width: 80%;
-  border-top: transparent;
-  border-bottom-color: #fff; }
+  margin: 2em 10%;
+  border-bottom: 1px solid #fff;
+  line-height: 0.1em;
+  text-align: center;
+  font-size: 80%;
+  color: #fff; }
+
+.separator-light span {
+  background-color: #444;
+  padding: 5px; }
+
+.button-social-networks {
+  width: 70%;
+  text-align: left; }
+
+.button-email.icon-left:before {
+  padding-right: 0.6em;
+  padding-left: 0.5em; }
+
+.button-facebook.icon-left:before {
+  padding-right: 0.6em;
+  padding-left: 0.5em; }
+
+.button-googleplus.icon-left:before {
+  padding-right: 0.3em;
+  padding-left: 0.3em; }
