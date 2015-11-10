@@ -1,57 +1,37 @@
 <ion-view view-title="Login">
   <ion-content class="login-bg">
 
-    <div class="bar bar-header bar-clear">
-      <a class="button icon-left ion-chevron-left button-clear button-light"></a>
+    <!-- button to return -->
+    <div class="row light container-login-form">
+      <div class="col col-100 text-left">
+          <a class="button icon-left ion-chevron-left button-clear button-light"></a>
+      </div>
     </div>
 
 
-    <div class="row light">
+    <div class="row light container-login-form">
       <div class="col col-100 text-center">
-        <div class="app-logo">
-          <img src="img/login-logo.png">
+        <div class="col col-100 text-left">
+          <div translate="LOGIN_FORGOT_PASSWORD"></div>
+        </div>
+        <div class="list">
+          <label class="item item-input">
+            <input type="text" placeholder="{{ 'LOGIN_FORM_EMAIL' | translate }}">
+          </label>
+          <label class="item item-input">
+            <i class="icon ion-sec placeholder-icon"></i>
+            <input type="password" placeholder="{{ 'LOGIN_FORM_PASSWORD' | translate }}">
+          </label>
         </div>
       </div>
     </div>
 
-
     <div class="row light">
-      <div class="col text-center">
-        <!--<button class="button button-social-networks icon ion-email"/>-->
-        <button class="button icon-left button-social-networks button-email ion-email" translate="LOGIN_WITH_EMAIL" />
+      <div class="col col-80 col-offset-10 text-center">
+        <button class="button button-social-networks button-royal ion-arrow-right-b icon-right"
+                translate="LOGIN_FORM_BUTTON"/>
       </div>
     </div>
 
-    <div class="row">
-      <div class="col col-100 text-center">
-        <div class="separator-light small">
-          <span>or</span>
-        </div>
-      </div>
-    </div>
-
-    <div class="row light">
-      <div class="col text-center">
-        <!--<button class="button button-social-networks icon button-facebook ion-social-facebook"/>-->
-        <button class="button icon-left button-social-networks button-facebook ion-social-facebook" translate="LOGIN_WITH_FACEBOOK" />
-      </div>
-    </div>
-
-    <div class="row light">
-      <div class="col text-center">
-        <!--<button class="button button-social-networks icon button-assertive ion-social-googleplus"/>-->
-        <button class="button icon-left button-social-networks button-googleplus ion-social-googleplus" translate="LOGIN_WITH_GOOGLEPLUS" />
-      </div>
-    </div>
-
-
-    <div class="row light">
-      <div class="col col-50 text-center">
-        <a class="button button-clear button-light" href="#/login">Sign Up</a>
-      </div>
-      <div class="col col-50 text-center">
-        <a class="button button-clear button-light" href="#/app/playlists">Skip</a>
-      </div>
-    </div>
   </ion-content>
 </ion-view>

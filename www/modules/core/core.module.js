@@ -33,6 +33,13 @@ angular.module('core.module', ['ionic', 'pascalprecht.translate', 'core.constant
   .config(function ($stateProvider, $urlRouterProvider) {
     $stateProvider
 
+      .state('welcome', {
+        url: '/welcome',
+        templateUrl: 'modules/welcome/welcome.html',
+        controller: 'core.controller',
+        authStatus: false
+      })
+
       .state('login', {
         url: '/login',
         templateUrl: 'modules/login/login.html',
@@ -85,5 +92,5 @@ angular.module('core.module', ['ionic', 'pascalprecht.translate', 'core.constant
         }
       });
     // if none of the above states are matched, use this as the fallback
-    $urlRouterProvider.otherwise('/login');
+    $urlRouterProvider.otherwise('/welcome');
   });

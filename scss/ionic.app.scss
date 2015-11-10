@@ -17,6 +17,7 @@ $dark:                            #444 !default;
 
 // Include customized variabless
 @import "../www/modules/core/core.variables";
+@import "../www/modules/welcome/welcome.variables";
 @import "../www/modules/login/login.variables";
 
 // The path for our ionicons font files, relative to the built CSS in www/css
@@ -27,4 +28,5 @@ $ionicons-font-path: "../lib/ionic/fonts" !default;
 
 // Include customized styles
 @import "../www/modules/core/core.style";
+@import "../www/modules/welcome/welcome.style";
 @import "../www/modules/login/login.style";

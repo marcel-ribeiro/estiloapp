@@ -12,10 +12,16 @@
   "TRANSLATE_LANGUAGE_LABEL": "Language",
   "TRANSLATE_TITLE": "Translate",
 
-  "LOGIN_TITLE": "Login",
+  "WELCOME_BUTTON_SIGNUP": "Sign Up",
+  "WELCOME_BUTTON_LOGIN": "Log In",
   "LOGIN_WITH_FACEBOOK": "Login with facebook",
   "LOGIN_WITH_GOOGLEPLUS": "Login with google",
-  "LOGIN_WITH_EMAIL": "Login with email",
+
+  "LOGIN_TITLE": "Login with email",
+  "LOGIN_FORGOT_PASSWORD": "Forgot Password?",
+  "LOGIN_FORM_EMAIL": "Email Address",
+  "LOGIN_FORM_PASSWORD": "Password",
+  "LOGIN_FORM_BUTTON": "Log In",
 
   "APP_NAME": "Estilo"
 

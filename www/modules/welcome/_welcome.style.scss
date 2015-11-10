@@ -1,0 +1,56 @@
+.button-outline-welcome{
+  @include button-style($button-outline-welcome-bg, $button-outline-welcome-border, $button-outline-welcome-active-bg, $button-outline-welcome-active-border, $button-outline-welcome-text);
+  @include button-clear($button-outline-welcome-border);
+  @include button-outline($button-outline-welcome-border);
+
+  @extend .button-outline;
+
+  &.button-outline {
+    border-color: $button-outline-welcome-border;
+    background: transparent;
+    color: $button-outline-welcome-text;
+    width: 90%;
+    &:hover {
+      //background: rgba(255, 255, 255, 0.2);
+      color: $button-outline-welcome-active-text;
+      text-decoration: none;
+    }
+    &.active,
+    &.activated {
+      background: transparent;
+      box-shadow: none;
+      color: $button-outline-welcome-active-text;
+    }
+  }
+}
+
+
+//button-social-networks
+.button-social-networks{
+  width: 100%;
+  text-align: left;
+}
+
+.button-email{
+  @extend .button-royal;
+}
+.button-email.icon-left:before{
+  padding-right: 0.6em;
+  padding-left: 0.5em;
+}
+
+.button-facebook{
+  @extend .button-positive;
+}
+.button-facebook.icon-left:before{
+  padding-right: 0.6em;
+  padding-left: 0.5em;
+}
+
+.button-googleplus{
+  @extend .button-assertive;
+}
+.button-googleplus.icon-left:before{
+  padding-right: 0.3em;
+  padding-left: 0.3em;
+}
