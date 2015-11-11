@@ -10,10 +10,14 @@
 
 
     <div class="row light container-login-form">
-      <div class="col col-100 text-center">
+      <div class="col col-90 col-offset-5 text-center">
+
+        <!-- Forgot password text -->
         <div class="col col-100 text-left">
           <div translate="LOGIN_FORGOT_PASSWORD"></div>
         </div>
+
+        <!-- Login form -->
         <div class="list">
           <label class="item item-input">
             <input type="text" placeholder="{{ 'LOGIN_FORM_EMAIL' | translate }}">
@@ -23,12 +27,14 @@
             <input type="password" placeholder="{{ 'LOGIN_FORM_PASSWORD' | translate }}">
           </label>
         </div>
+
       </div>
     </div>
 
+    <!-- Login button -->
     <div class="row light">
-      <div class="col col-80 col-offset-10 text-center">
-        <button class="button button-social-networks button-royal ion-arrow-right-b icon-right"
+      <div class="col col-90 col-offset-5 text-center">
+        <button class="button button-login"
                 translate="LOGIN_FORM_BUTTON"/>
       </div>
     </div>

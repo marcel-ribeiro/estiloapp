@@ -29,3 +29,14 @@
   background-color: $dark;
   padding: 5px;
 }
+
+
+//Form
+.button-login{
+  @extend .button-royal;
+  width: 100%;
+}
+.button-login.icon-left:before{
+  padding-right: 0.6em;
+  padding-left: 0.5em;
+}

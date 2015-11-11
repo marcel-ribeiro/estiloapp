@@ -1,0 +1,19 @@
+//TODO Remove this borders
+//.col{
+//  border: solid coral 1px;
+//}
+
+
+/* Column Offsets */
+.col-offset-5 {
+  margin-left: 5%;
+}
+
+/* Explicit Column Percent Sizes */
+/* By default each grid column will evenly distribute */
+/* across the grid. However, you can specify individual */
+/* columns to take up a certain size of the available area */
+.col-5 {
+  @include flex(0, 0, 5%);
+  max-width: 5%;
+}

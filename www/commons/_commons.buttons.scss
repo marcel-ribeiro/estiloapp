@@ -1,0 +1,26 @@
+//TODO: Remove Circular button
+.button-circle {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  -webkit-transition: all 0.2s ease-in;
+  transition: all 0.2s ease-in;
+}
+.button-circle i {
+  font-size: 1.5em;
+}
+.button-circle:hover {
+  -webkit-transform: scale(1.2) !important;
+  transform: scale(1.2) !important;
+}
+
+.button-circle-light {
+  background-color: $light;
+  border: 3px solid $light;
+  //color: $dark;
+}
+.button-circle-light:hover {
+  border: 3px solid $light;
+  background-color: $light; /*stable*/
+}
+
