@@ -35,14 +35,14 @@ angular.module('core.module', ['ionic', 'pascalprecht.translate', 'core.constant
 
       .state('welcome', {
         url: '/welcome',
-        templateUrl: 'modules/welcome/welcome.html',
+        templateUrl: 'modules/authentication/welcome/welcome.html',
         controller: 'core.controller',
         authStatus: false
       })
 
       .state('login', {
         url: '/login',
-        templateUrl: 'modules/login/login.html',
+        templateUrl: 'modules/authentication/login/login.html',
         controller: 'login.controller',
         authStatus: false
       })

@@ -1,3 +1,11 @@
+.app-logo{
+  padding-top: 5em;
+  padding-bottom: 5em;
+}
+
+
+
+// Button outlined
 .button-outline-welcome{
   @include button-style($button-outline-welcome-bg, $button-outline-welcome-border, $button-outline-welcome-active-bg, $button-outline-welcome-active-border, $button-outline-welcome-text);
   @include button-clear($button-outline-welcome-border);

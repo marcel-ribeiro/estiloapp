@@ -1,0 +1,7 @@
+//common styles for Authentication pages (welcome, login, signup, forgot-pass)
+//Page background
+.login-bg {
+  background: url($bg-login-img) no-repeat center center fixed;
+  background-size: cover;
+  background-color: $dark;
+}

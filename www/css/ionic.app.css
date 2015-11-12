@@ -9099,6 +9099,38 @@ a.button {
   flex: 0 0 5%;
   max-width: 5%; }
 
+.button-circle {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  -webkit-transition: all 0.2s ease-in;
+  transition: all 0.2s ease-in; }
+
+.button-circle i {
+  font-size: 1.5em; }
+
+.button-circle:hover {
+  -webkit-transform: scale(1.2) !important;
+  transform: scale(1.2) !important; }
+
+.button-circle-light {
+  background-color: #FFFFFF;
+  border: 3px solid #FFFFFF; }
+
+.button-circle-light:hover {
+  border: 3px solid #FFFFFF;
+  background-color: #FFFFFF;
+  /*stable*/ }
+
+.login-bg {
+  background: url("../img/login-bg.jpg") no-repeat center center fixed;
+  background-size: cover;
+  background-color: #444; }
+
+.app-logo {
+  padding-top: 5em;
+  padding-bottom: 5em; }
+
 .button-outline-welcome {
   border-color: #ffffff;
   background-color: #ffffff;
@@ -9154,32 +9186,6 @@ a.button {
 .button-googleplus.icon-left:before {
   padding-right: 0.3em;
   padding-left: 0.3em; }
-
-.login-bg {
-  background: url("../img/login-bg.jpg") no-repeat center center fixed;
-  background-size: cover;
-  background-color: #444; }
-
-.bar-header {
-  margin-bottom: 200px;
-  background-color: yellow; }
-
-.app-logo {
-  padding-top: 5em;
-  padding-bottom: 5em; }
-
-.separator-light {
-  width: 80%;
-  margin: 2em 10%;
-  border-bottom: 1px solid #FFFFFF;
-  line-height: 0.1em;
-  text-align: center;
-  font-size: 80%;
-  color: #FFFFFF; }
-
-.separator-light span {
-  background-color: #444;
-  padding: 5px; }
 
 .button-login {
   width: 100%; }
