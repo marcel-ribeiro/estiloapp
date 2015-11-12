@@ -9122,8 +9122,8 @@ a.button {
   background-color: #FFFFFF;
   /*stable*/ }
 
-.login-bg {
-  background: url("../img/login-bg.jpg") no-repeat center center fixed;
+.authentication-bg {
+  background: url("../img/authentication-bg.jpg") no-repeat center center fixed;
   background-size: cover;
   background-color: #444; }
 
