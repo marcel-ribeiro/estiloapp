@@ -1,4 +1,4 @@
-angular.module('core.module', ['ionic', 'pascalprecht.translate', 'core.constants', 'core.controller', 'translate.controller'])
+angular.module('core.module', ['ionic', 'pascalprecht.translate', 'core.constants', 'core.controller', 'translate.controller', 'login.controller'])
 
   .run(function ($ionicPlatform) {
     $ionicPlatform.ready(function () {
@@ -43,7 +43,7 @@ angular.module('core.module', ['ionic', 'pascalprecht.translate', 'core.constant
       .state('login', {
         url: '/login',
         templateUrl: 'modules/login/login.html',
-        controller: 'core.controller',
+        controller: 'login.controller',
         authStatus: false
       })
 

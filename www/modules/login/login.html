@@ -4,7 +4,7 @@
     <!-- button to return -->
     <div class="row light container-login-form">
       <div class="col col-100 text-left">
-          <a class="button icon-left ion-chevron-left button-clear button-light" ui-sref="welcome"></a>
+        <a class="button icon-left ion-chevron-left button-clear button-light" ui-sref="welcome"></a>
       </div>
     </div>
 
@@ -18,14 +18,18 @@
         </div>
 
         <!-- Login form -->
-        <div class="list">
-          <label class="item item-input">
-            <input type="text" placeholder="{{ 'LOGIN_FORM_EMAIL' | translate }}">
-          </label>
-          <label class="item item-input">
-            <input type="password" placeholder="{{ 'LOGIN_FORM_PASSWORD' | translate }}">
-          </label>
-        </div>
+        <form name="loginForm" ng-submit="submitForm(userForm.$valid)" novalidate>
+          <div class="list">
+            <label class="item item-input">
+              <input type="text" name="username" ng-model="user.username" class="form-control" required
+                     placeholder="{{ 'LOGIN_FORM_EMAIL' | translate }}">
+            </label>
+            <label class="item item-input">
+              <input type="password" name="password" ng-model="user.password" class="form-control" required
+                     placeholder="{{ 'LOGIN_FORM_PASSWORD' | translate }}">
+            </label>
+          </div>
+        </form>
 
       </div>
     </div>
@@ -33,8 +37,7 @@
     <!-- Login button -->
     <div class="row light">
       <div class="col col-90 col-offset-5 text-center">
-        <button class="button button-login"
-                translate="LOGIN_FORM_BUTTON"/>
+        <button class="button button-login" translate="LOGIN_FORM_BUTTON" ng-disabled="loginForm.$invalid"/>
       </div>
     </div>
 
