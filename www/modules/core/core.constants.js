@@ -1,4 +1,7 @@
 angular.module('core.constants', [])
+  .constant('DEFAULT_STATE_AUTHENTICATED', 'app.playlists')
+
+  //Translate
   .constant('PREFIX_LOCALES', 'modules/core/locales/')
   .constant('SUFFIX_LOCALES', '.json')
   .constant('LOCALES', {
