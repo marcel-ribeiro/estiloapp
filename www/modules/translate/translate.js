@@ -1,0 +1,1 @@
+angular.module('translate', ['translate.controller'])

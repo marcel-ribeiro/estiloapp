@@ -1,10 +1,10 @@
-angular.module('core.module', [
+angular.module('core', [
   'ionic',
   'pascalprecht.translate',
+  'translate',
+  'login',
   'core.constants',
-  'core.controller',
-  'translate.controller',
-  'login'
+  'core.controller'
 ])
 
   .run(function ($ionicPlatform) {
