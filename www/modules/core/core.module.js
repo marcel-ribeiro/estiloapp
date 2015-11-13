@@ -1,4 +1,11 @@
-angular.module('core.module', ['ionic', 'pascalprecht.translate', 'core.constants', 'core.controller', 'translate.controller', 'authentication', 'login'])
+angular.module('core.module', [
+  'ionic',
+  'pascalprecht.translate',
+  'core.constants',
+  'core.controller',
+  'translate.controller',
+  'login'
+])
 
   .run(function ($ionicPlatform) {
     $ionicPlatform.ready(function () {
@@ -16,7 +23,7 @@ angular.module('core.module', ['ionic', 'pascalprecht.translate', 'core.constant
     });
   })
 
-  .config(function($ionicConfigProvider, $translateProvider, PREFIX_LOCALES, SUFFIX_LOCALES, LOCALES) {
+  .config(function ($ionicConfigProvider, $translateProvider, PREFIX_LOCALES, SUFFIX_LOCALES, LOCALES) {
 
     $translateProvider
       .useStaticFilesLoader({

@@ -1,26 +1,5 @@
-angular.module('login')
-  //.factory('Auth', function ($cookieStore) {
-  //  var _user = $cookieStore.get('starter.user');
-  //  var setUser = function (user) {
-  //    _user = user;
-  //    $cookieStore.put('starter.user', _user);
-  //  }
-  //
-  //  return {
-  //    setUser: setUser,
-  //    isLoggedIn: function () {
-  //      return _user ? true : false;
-  //    },
-  //    getUser: function () {
-  //      return _user;
-  //    },
-  //    logout: function () {
-  //      $cookieStore.remove('starter.user');
-  //      _user = null;
-  //    }
-  //  }
-  //});
-  .service('AuthService', function ($q, $http, USER_ROLES) {
+angular.module('authentication.service', [])
+  .service('AuthenticationService', function ($q, $http) {
     var LOCAL_TOKEN_KEY = 'yourTokenKey';
     var username = '';
     var isAuthenticated = false;
@@ -44,12 +23,7 @@ angular.module('login')
       isAuthenticated = true;
       authToken = token;
 
-      if (username == 'admin') {
-        role = USER_ROLES.admin
-      }
-      if (username == 'user') {
-        role = USER_ROLES.public
-      }
+      role = username;
 
       // Set the token as header for your requests!
       $http.defaults.headers.common['X-Auth-Token'] = token;

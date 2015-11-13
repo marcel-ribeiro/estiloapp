@@ -1,5 +1,5 @@
 angular.module('core.constants', [])
-  .constant('DEFAULT_STATE_AUTHENTICATED', 'app.playlists')
+  .constant('APP_DEFAULT_ROUTE', 'app.playlists')
 
   //Translate
   .constant('PREFIX_LOCALES', 'modules/core/locales/')
