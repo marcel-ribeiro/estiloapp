@@ -4,7 +4,7 @@ angular.module('login.controller', [])
     $scope.data = {};
 
     $scope.login = function (data) {
-      AuthenticationService.login(data.username, data.password).then(function (authenticated) {
+      AuthenticationService.login(data.email, data.password).then(function (authenticated) {
         $state.go(APP_DEFAULT_ROUTE, {}, {reload: true});
       }, function (err) {
         var alertPopup = $ionicPopup.alert({

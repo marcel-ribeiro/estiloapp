@@ -9193,3 +9193,10 @@ a.button {
 .button-login.icon-left:before {
   padding-right: 0.6em;
   padding-left: 0.5em; }
+
+.button-login {
+  width: 100%; }
+
+.button-login.icon-left:before {
+  padding-right: 0.6em;
+  padding-left: 0.5em; }

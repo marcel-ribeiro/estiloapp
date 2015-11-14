@@ -2,6 +2,7 @@ angular.module('core', [
   'ionic',
   'pascalprecht.translate',
   'translate',
+  'signup',
   'login',
   'core.constants',
   'core.controller'
@@ -51,6 +52,13 @@ angular.module('core', [
         url: '/login',
         templateUrl: 'modules/authentication/login/login.html',
         controller: 'loginController',
+        authStatus: false
+      })
+
+      .state('signup', {
+        url: '/signup',
+        templateUrl: 'modules/authentication/signup/signup.html',
+        controller: 'signupController',
         authStatus: false
       })
 

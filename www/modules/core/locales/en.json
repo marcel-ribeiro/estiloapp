@@ -18,11 +18,17 @@
   "LOGIN_WITH_FACEBOOK": "Login with facebook",
   "LOGIN_WITH_GOOGLEPLUS": "Login with google",
 
-  "LOGIN_TITLE": "Login",
+  "LOGIN_TITLE": "Log In",
   "LOGIN_FORGOT_PASSWORD": "Forgot Password?",
   "LOGIN_FORM_EMAIL": "Email Address",
   "LOGIN_FORM_PASSWORD": "Password",
   "LOGIN_FORM_BUTTON": "Log In",
+
+  "SIGNUP_TITLE": "Sign Up",
+  "SIGNUP_FORM_NAME": "Full Name",
+  "SIGNUP_FORM_EMAIL": "Email Address",
+  "SIGNUP_FORM_PASSWORD": "Password",
+  "SIGNUP_FORM_BUTTON": "Sign Up",
 
   "APP_NAME": "Estilo"
 
