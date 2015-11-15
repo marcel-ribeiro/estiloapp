@@ -1,7 +1,7 @@
 angular.module('login.controller', [])
 
 
-  .controller('loginController', function ($scope, $rootScope, $state, $ionicLoading, $ionicPopup, $filter, authenticationFactory, APP_DEFAULT_ROUTE) {
+  .controller('loginController', function ($scope, $rootScope, $state, $ionicLoading, $ionicPopup, $filter, firebaseFactory, authenticationFactory, APP_DEFAULT_ROUTE) {
     var $translate = $filter('translate');
 
     $scope.login = function (user) {
@@ -24,15 +24,15 @@ angular.module('login.controller', [])
         password: user.password
       }).then(function (authData) {
         console.log("Logged in as:" + authData.uid);
-        $rootScope.authData = authData;
-        //
-        //ref.child("users").child(authData.uid).once('value', function (userInfoSnapshot) {
-        //  var val = userInfoSnapshot.val();
-        //  // To Update AngularJS $scope either use $apply or $timeout
-        //  $scope.$apply(function () {
-        //    $rootScope.displayName = val;
-        //  });
-        //});
+        $rootScope.currentAuthData = authData;
+        firebaseFactory.child("users").child(authData.uid).once('value', function (snapshot) {
+          var userData = snapshot.val();
+          // To Update AngularJS $scope either use $apply or $timeout
+          $scope.$apply(function () {
+            $rootScope.currentUser = userData;
+          });
+        });
+
         $state.go(APP_DEFAULT_ROUTE, {}, {reload: true});
       }).catch(function (error) {
         console.log("Error logging in: ", error.message);

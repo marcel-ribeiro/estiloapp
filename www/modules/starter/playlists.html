@@ -1,12 +1,20 @@
 <ion-view view-title="Playlists">
-  <ion-content>
-    <ion-list>
-      <ion-item ng-repeat="playlist in playlists" href="#/app/playlists/{{playlist.id}}">
-        {{playlist.title}}
-      </ion-item>
-    </ion-list>
-    <row>
-      UID: {{authData.uid}}
-    </row>
+  <ion-list>
+    <ion-item ng-repeat="playlist in playlists" href="#/app/playlists/{{playlist.id}}">
+      {{playlist.title}}
+    </ion-item>
+  </ion-list>
+  <div class="row">
+      UID:
+      {{currentAuthData.uid}}
+  </div>
+  <div class="row">
+      User Name:
+      {{currentUser.name}}
+  </div>
+  <div class="row">
+      Email:
+      {{currentUser.email}}
+  </div>
   </ion-content>
 </ion-view>
