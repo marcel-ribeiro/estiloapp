@@ -2,18 +2,16 @@ angular.module('signup.controller', [
   'firebase'
 ])
 
-  .controller('signupController', function ($scope, $state, $ionicModal, $firebaseAuth, $ionicLoading, $ionicPopup, $filter, SERVICES_ROOT, APP_DEFAULT_ROUTE) {
+  .controller('signupController', function ($scope, $state, $ionicModal, $ionicLoading, $ionicPopup, $filter, authenticationFactory, SERVICES_ROOT, APP_DEFAULT_ROUTE) {
     var $translate = $filter('translate');
-    var ref = new Firebase(SERVICES_ROOT);
-    var auth = $firebaseAuth(ref);
 
     $scope.signup = function (user) {
       if (!user || !user.email || !user.password || !user.name) {
         var errorTitle = $translate('SIGNUP_ERROR_TITLE');
         var errorMsg = $translate('SIGNUP_FORM_INCOMPLETE');
         showErrorAlert(errorTitle, errorMsg);
-      }
         return;
+      }
 
       console.log("Signup with email: ", user.email);
       $ionicLoading.show({
@@ -21,7 +19,7 @@ angular.module('signup.controller', [
         hideOnStageChange: true
       });
 
-      auth.$createUser({
+      authenticationFactory.$createUser({
         name: user.name,
         email: user.email,
         password: user.password

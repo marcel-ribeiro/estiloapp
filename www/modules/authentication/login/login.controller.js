@@ -2,10 +2,9 @@ angular.module('login.controller', [
   'firebase'
 ])
 
-  .controller('loginController', function ($scope, $rootScope, $state, $firebaseAuth, $ionicLoading, $ionicPopup, $filter, SERVICES_ROOT, APP_DEFAULT_ROUTE) {
+
+  .controller('loginController', function ($scope, $rootScope, $state, $ionicLoading, $ionicPopup, $filter, authenticationFactory, SERVICES_ROOT, APP_DEFAULT_ROUTE) {
     var $translate = $filter('translate');
-    var ref = new Firebase(SERVICES_ROOT);
-    var auth = $firebaseAuth(ref);
 
     $scope.login = function (user) {
       if (!user || !user.email || !user.password) {
@@ -22,20 +21,20 @@ angular.module('login.controller', [
       });
 
 
-      auth.$authWithPassword({
+      authenticationFactory.$authWithPassword({
         email: user.email,
         password: user.password
       }).then(function (authData) {
         console.log("Logged in as:" + authData.uid);
         $rootScope.authData = authData;
-
-        ref.child("users").child(authData.uid).once('value', function (userInfoSnapshot) {
-          var val = userInfoSnapshot.val();
-          // To Update AngularJS $scope either use $apply or $timeout
-          $scope.$apply(function () {
-            $rootScope.displayName = val;
-          });
-        });
+        //
+        //ref.child("users").child(authData.uid).once('value', function (userInfoSnapshot) {
+        //  var val = userInfoSnapshot.val();
+        //  // To Update AngularJS $scope either use $apply or $timeout
+        //  $scope.$apply(function () {
+        //    $rootScope.displayName = val;
+        //  });
+        //});
         $state.go(APP_DEFAULT_ROUTE, {}, {reload: true});
       }).catch(function (error) {
         console.log("Error logging in: ", error.message);

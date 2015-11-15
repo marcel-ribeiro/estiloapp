@@ -1,11 +1,8 @@
 angular.module('authentication.service', [])
-  .factory("Auth", ["$firebaseAuth", SERVICES_ROOT,
-    function($firebaseAuth) {
-      var ref = new Firebase(SERVICES_ROOT);
-      //var ref = new Firebase(SERVICES_ROOT, "example3");
-      return $firebaseAuth(ref);
-    }
-  ])
+  .factory('Auth', function($firebaseAuth, SERVICES_ROOT){
+    var ref = new Firebase(SERVICES_ROOT);
+    return $firebaseAuth(ref);
+  })
 
   .service('AuthenticationService', function ($q, $http) {
     var LOCAL_TOKEN_KEY = 'yourTokenKey';
