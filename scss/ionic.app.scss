@@ -16,7 +16,7 @@ $dark:                            #444 !default;
 */
 
 // Include customized variabless
-@import "../www/commons/commons.variables";
+@import "../www/modules/commons/scss/commons.variables";
 @import "../www/modules/core/core.variables";
 @import "../www/modules/authentication/commons/authentication.commons.variables";
 @import "../www/modules/authentication/welcome/welcome.variables";
@@ -28,7 +28,7 @@ $ionicons-font-path: "../lib/ionic/fonts" !default;
 @import "www/lib/ionic/scss/ionic";
 
 // Include customized styles
-@import "../www/commons/commons.style";
+@import "../www/modules/commons/scss/commons.style";
 @import "../www/modules/core/core.style";
 @import "../www/modules/authentication/commons/authentication.commons.style";
 @import "../www/modules/authentication/welcome/welcome.style";

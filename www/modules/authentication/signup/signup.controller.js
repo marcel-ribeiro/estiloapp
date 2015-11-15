@@ -1,6 +1,6 @@
 angular.module('signup.controller', [])
 
-  .controller('signupController', function ($scope, $state, $ionicModal, $ionicLoading, $ionicPopup, $filter, authenticationFactory, APP_DEFAULT_ROUTE) {
+  .controller('signupController', function ($scope, $state, $ionicModal, $ionicLoading, $ionicPopup, $filter, firebaseFactory, authenticationFactory, APP_DEFAULT_ROUTE) {
     var $translate = $filter('translate');
 
     $scope.signup = function (user) {
@@ -18,11 +18,14 @@ angular.module('signup.controller', [])
       });
 
       authenticationFactory.$createUser({
-        name: user.name,
         email: user.email,
         password: user.password
       }).then(function (userData) {
         console.log("User created with uid: ", userData.uid);
+        firebaseFactory.child("users").child(userData.uid).set({
+          email: user.email,
+          name: user.name
+        });
 
         $state.go(APP_DEFAULT_ROUTE, {}, {reload: true});
 
