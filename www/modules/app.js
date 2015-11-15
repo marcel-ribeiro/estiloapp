@@ -4,7 +4,7 @@ angular.module('app', [
   'login',
   'core.constants',
   'core.factory',
-  'core.controller'
+  'starter.controller'
 ])
 
   .run(function ($ionicPlatform) {
@@ -21,20 +21,6 @@ angular.module('app', [
         StatusBar.styleDefault();
       }
     });
-  })
-
-  .config(function ($ionicConfigProvider, $translateProvider, PREFIX_LOCALES, SUFFIX_LOCALES, LOCALES) {
-
-    $translateProvider
-      .useStaticFilesLoader({
-        prefix: PREFIX_LOCALES,
-        suffix: SUFFIX_LOCALES
-      })
-      .registerAvailableLanguageKeys(['en', 'pt', 'de'], LOCALES)
-      .preferredLanguage('en')
-      .fallbackLanguage('en')
-      .determinePreferredLanguage()
-      .useSanitizeValueStrategy('escapeParameters');
   })
 
   .config(function ($stateProvider, $urlRouterProvider) {
@@ -63,8 +49,7 @@ angular.module('app', [
       .state('app', {
         url: '/app',
         abstract: true,
-        templateUrl: 'modules/core/menu.html',
-        controller: 'core.controller'
+        templateUrl: 'modules/core/menu.html'
       })
 
       .state('app.search', {
@@ -90,7 +75,7 @@ angular.module('app', [
         views: {
           'menuContent': {
             templateUrl: 'modules/starter/playlists.html',
-            controller: 'PlaylistsCtrl'
+            controller: 'playlistsController'
           }
         }
       })
@@ -99,8 +84,7 @@ angular.module('app', [
         url: '/playlists/:playlistId',
         views: {
           'menuContent': {
-            templateUrl: 'modules/starter/playlist.html',
-            controller: 'PlaylistCtrl'
+            templateUrl: 'modules/starter/playlist.html'
           }
         }
       });

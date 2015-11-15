@@ -1,6 +1,6 @@
-angular.module('core.controller', ['core.constants'])
+angular.module('starter.controller', ['core.constants'])
 
-.controller('PlaylistsCtrl', function ($scope) {
+  .controller('playlistsController', function ($scope) {
     $scope.playlists = [
       {title: 'Reggae', id: 1},
       {title: 'Chill', id: 2},
@@ -9,9 +9,5 @@ angular.module('core.controller', ['core.constants'])
       {title: 'Rap', id: 5},
       {title: 'Cowbell', id: 6}
     ];
-  })
-
-  .controller('PlaylistCtrl', function ($scope, $stateParams) {
   });
-
 
