@@ -19,35 +19,6 @@ angular.module('app', [
         // org.apache.cordova.statusbar required
         StatusBar.styleDefault();
       }
-
-
-      //authenticationFactory.$onAuth(function (authData) {
-      //  if (authData) {
-      //    console.log("Logged in as: ", authData.uid);
-      //  } else {
-      //    console.log("Logged out");
-      //    $ionicLoading.hide();
-      //    $location.path('/welcome');
-      //  }
-      //});
-      //
-      //$rootScope.logout = function () {
-      //  console.log("Logging out from the app");
-      //  $ionicLoading.show({
-      //    template: 'Logging Out...'
-      //  });
-      //  authenticationFactory.$unauth();
-      //};
-      //
-      //
-      //$rootScope.$on("$stateChangeError", function (event, toState, toParams, fromState, fromParams, error) {
-      //  // We can catch the error thrown when the $requireAuth promise is rejected
-      //  // and redirect the user back to the home page
-      //  if (error === "AUTH_REQUIRED") {
-      //    $location.path("/signup");
-      //  }
-      //});
-
     });
   })
 
