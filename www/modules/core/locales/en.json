@@ -23,6 +23,8 @@
   "LOGIN_FORM_EMAIL": "Email Address",
   "LOGIN_FORM_PASSWORD": "Password",
   "LOGIN_FORM_BUTTON": "Log In",
+  "LOGIN_FORM_INCOMPLETE": "Looks like your form is incomplete. Can you please double check and submit again?",
+  "LOGIN_ERROR_TITLE": "Log In Error",
 
   "SIGNUP_TITLE": "Sign Up",
   "SIGNUP_FORM_NAME": "Full Name",

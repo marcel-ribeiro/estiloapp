@@ -1,11 +1,10 @@
-angular.module('login.controller', [
+angular.module('authentication.controller', [
   'firebase'
 ])
 
-  .controller('loginController', function ($scope, $rootScope, $state, $firebaseAuth, $ionicLoading, $ionicPopup, $filter, SERVICES_ROOT, APP_DEFAULT_ROUTE) {
+  .controller('loginController', function ($scope, $rootScope, $state, $ionicLoading, $ionicPopup, $filter, Auth, SERVICES_ROOT, APP_DEFAULT_ROUTE) {
     var $translate = $filter('translate');
-    var ref = new Firebase(SERVICES_ROOT);
-    var auth = $firebaseAuth(ref);
+    var auth = Auth;
 
     $scope.login = function (user) {
       if (!user || !user.email || !user.password) {

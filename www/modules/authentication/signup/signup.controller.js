@@ -2,16 +2,18 @@ angular.module('signup.controller', [
   'firebase'
 ])
 
-  .controller('signupController', function ($scope, $ionicModal, $state, $firebaseAuth, $ionicLoading, $ionicPopup, $filter, SERVICES_ROOT, APP_DEFAULT_ROUTE) {
+  .controller('signupController', function ($scope, $state, $ionicModal, $firebaseAuth, $ionicLoading, $ionicPopup, $filter, SERVICES_ROOT, APP_DEFAULT_ROUTE) {
     var $translate = $filter('translate');
     var ref = new Firebase(SERVICES_ROOT);
     var auth = $firebaseAuth(ref);
 
     $scope.signup = function (user) {
       if (!user || !user.email || !user.password || !user.name) {
-        showErrorAlert($translate('SIGNUP_FORM_INCOMPLETE'));
-        return;
+        var errorTitle = $translate('SIGNUP_ERROR_TITLE');
+        var errorMsg = $translate('SIGNUP_FORM_INCOMPLETE');
+        showErrorAlert(errorTitle, errorMsg);
       }
+        return;
 
       console.log("Signup with email: ", user.email);
       $ionicLoading.show({
@@ -31,21 +33,19 @@ angular.module('signup.controller', [
       }).catch(function (error) {
         console.log("Error signing up: ", error.message);
 
+        var errorTitle = $translate('SIGNUP_ERROR_TITLE');
         var errorMsg = getErrorMsg(error);
-        showErrorAlert(errorMsg);
-      }).finally(function (){
+        showErrorAlert(errorTitle, errorMsg);
+      }).finally(function () {
         $ionicLoading.hide();
       });
-
 
     };
 
     /*
      * Displays the alert with the error messages
      * */
-    var showErrorAlert = function (errorMsg) {
-      var errorTitle = getErrorTitle();
-
+    var showErrorAlert = function (errorTitle, errorMsg) {
       var alertPopup = $ionicPopup.alert({
         title: errorTitle,
         template: errorMsg,
@@ -71,15 +71,5 @@ angular.module('signup.controller', [
       return errorMsg;
     };
 
-    /*
-     * Retrieves the title of the alert pop up (according to the locale)
-     * */
-    var getErrorTitle = function () {
-      var errorTitle = $translate('SIGNUP_ERROR_TITLE');
-      if (!errorTitle) {
-        errorTitle = 'Error';
-      }
 
-      return errorTitle;
-    }
   });
