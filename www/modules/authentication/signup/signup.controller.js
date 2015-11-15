@@ -15,7 +15,8 @@ angular.module('signup.controller', [
 
       console.log("Signup with email: ", user.email);
       $ionicLoading.show({
-        template: $translate('SIGNUP_LOADING')
+        template: '<ion-spinner></ion-spinner>',
+        hideOnStageChange: true
       });
 
       auth.$createUser({
@@ -25,15 +26,14 @@ angular.module('signup.controller', [
       }).then(function (userData) {
         console.log("User created with uid: ", userData.uid);
 
-        $ionicLoading.hide();
         $state.go(APP_DEFAULT_ROUTE, {}, {reload: true});
 
       }).catch(function (error) {
-        //error
         console.log("Error signing up: ", error.message);
+
         var errorMsg = getErrorMsg(error);
         showErrorAlert(errorMsg);
-
+      }).finally(function (){
         $ionicLoading.hide();
       });
 
