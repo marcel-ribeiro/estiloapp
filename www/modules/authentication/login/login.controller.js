@@ -23,7 +23,7 @@ angular.module('login.controller', [])
         email: user.email,
         password: user.password
       }).then(function (authData) {
-        console.log("Logged in as:" + authData.uid);
+        console.log("Logged in as: " + authData.uid);
         $rootScope.currentAuthData = authData;
         firebaseFactory.child("users").child(authData.uid).once('value', function (snapshot) {
           var userData = snapshot.val();
