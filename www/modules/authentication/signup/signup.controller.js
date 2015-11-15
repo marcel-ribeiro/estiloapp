@@ -1,8 +1,6 @@
-angular.module('signup.controller', [
-  'firebase'
-])
+angular.module('signup.controller', [])
 
-  .controller('signupController', function ($scope, $state, $ionicModal, $ionicLoading, $ionicPopup, $filter, authenticationFactory, SERVICES_ROOT, APP_DEFAULT_ROUTE) {
+  .controller('signupController', function ($scope, $state, $ionicModal, $ionicLoading, $ionicPopup, $filter, authenticationFactory, APP_DEFAULT_ROUTE) {
     var $translate = $filter('translate');
 
     $scope.signup = function (user) {

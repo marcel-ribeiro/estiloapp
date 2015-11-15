@@ -1,9 +1,7 @@
-angular.module('login.controller', [
-  'firebase'
-])
+angular.module('login.controller', [])
 
 
-  .controller('loginController', function ($scope, $rootScope, $state, $ionicLoading, $ionicPopup, $filter, authenticationFactory, SERVICES_ROOT, APP_DEFAULT_ROUTE) {
+  .controller('loginController', function ($scope, $rootScope, $state, $ionicLoading, $ionicPopup, $filter, authenticationFactory, APP_DEFAULT_ROUTE) {
     var $translate = $filter('translate');
 
     $scope.login = function (user) {
@@ -76,4 +74,6 @@ angular.module('login.controller', [
       }
       return errorMsg;
     };
+
+
   });

@@ -2,9 +2,9 @@ angular.module('app', [
   'core',
   'signup',
   'login',
+  'starter',
   'core.constants',
-  'core.factory',
-  'starter.controller'
+  'core.factory'
 ])
 
   .run(function ($ionicPlatform) {
