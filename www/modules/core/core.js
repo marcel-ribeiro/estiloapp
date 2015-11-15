@@ -5,6 +5,7 @@ angular.module('core', [
   'signup',
   'login',
   'core.constants',
+  'core.factory',
   'core.controller'
 ])
 
@@ -44,7 +45,6 @@ angular.module('core', [
       .state('welcome', {
         url: '/welcome',
         templateUrl: 'modules/authentication/welcome/welcome.html',
-        controller: 'core.controller',
         authStatus: false
       })
 
