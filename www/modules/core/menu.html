@@ -18,9 +18,6 @@
     </ion-header-bar>
     <ion-content>
       <ion-list>
-        <ion-item menu-close ng-click="login()">
-          <div translate="MENU_LOGIN"></div>
-        </ion-item>
         <ion-item menu-close href="#/app/search">
           <div translate="MENU_SEARCH"></div>
         </ion-item>
@@ -30,7 +27,8 @@
         <ion-item menu-close href="#/app/playlists">
           <div translate="MENU_PLAYLISTS"></div>
         </ion-item>
-        <ion-item menu-close href="#/welcome"/>
+        <!--<ion-item menu-close href="#/welcome"/>-->
+        <ion-item menu-close ng-click="logout()"/>
           <div translate="MENU_LOGOUT"></div>
       </ion-list>
       </ion-list>
