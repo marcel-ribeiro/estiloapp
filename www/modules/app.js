@@ -3,6 +3,7 @@ angular.module('app', [
   'authentication',
   'signup',
   'login',
+  'forgotpass',
   'starter'
 ])
 
@@ -27,24 +28,28 @@ angular.module('app', [
 
       .state('welcome', {
         url: '/welcome',
-        templateUrl: 'modules/authentication/welcome/welcome.html',
-        authStatus: false
+        templateUrl: 'modules/authentication/welcome/welcome.html'
       })
 
       .state('login', {
         url: '/login',
         templateUrl: 'modules/authentication/login/login.html',
-        controller: 'loginController',
-        authStatus: false
+        controller: 'loginController'
       })
 
       .state('signup', {
         url: '/signup',
         templateUrl: 'modules/authentication/signup/signup.html',
-        controller: 'signupController',
-        authStatus: false
+        controller: 'signupController'
       })
 
+      .state('forgotpass', {
+        url: '/forgotpass',
+        templateUrl: 'modules/authentication/forgotpass/forgotpass.html',
+        controller: 'forgotpassController'
+      })
+
+      //Application per say
       .state('app', {
         url: '/app',
         abstract: true,
@@ -55,7 +60,10 @@ angular.module('app', [
         url: '/search',
         views: {
           'menuContent': {
-            templateUrl: 'modules/starter/search.html'
+            templateUrl: 'modules/starter/search.html',
+            resolve: {
+              "currentAuth": requireAuth
+            }
           }
         }
       })
@@ -65,7 +73,10 @@ angular.module('app', [
         views: {
           'menuContent': {
             templateUrl: 'modules/translate/translate.html',
-            controller: 'translate.controller'
+            controller: 'translate.controller',
+            resolve: {
+              "currentAuth": requireAuth
+            }
           }
         }
       })
@@ -76,10 +87,7 @@ angular.module('app', [
             templateUrl: 'modules/starter/playlists.html',
             controller: 'playlistsController',
             resolve: {
-              "currentAuth": ["authenticationFactory",
-                function (authenticationFactory) {
-                  return authenticationFactory.$requireAuth();
-                }]
+              "currentAuth": requireAuth
             }
           }
         }
@@ -89,10 +97,19 @@ angular.module('app', [
         url: '/playlists/:playlistId',
         views: {
           'menuContent': {
-            templateUrl: 'modules/starter/playlist.html'
+            templateUrl: 'modules/starter/playlist.html',
+            resolve: {
+              "currentAuth": requireAuth
+            }
           }
         }
       });
     // if none of the above states are matched, use this as the fallback
     $urlRouterProvider.otherwise('/welcome');
+
+
+    function requireAuth(authenticationFactory) {
+      return authenticationFactory.$requireAuth();
+    }
+
   });

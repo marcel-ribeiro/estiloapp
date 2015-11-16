@@ -9127,6 +9127,9 @@ a.button {
   background-size: cover;
   background-color: #444; }
 
+.authentication-bg a[href] {
+  text-decoration: double; }
+
 .app-logo {
   padding-top: 5em;
   padding-bottom: 5em; }

@@ -29,6 +29,7 @@ angular.module('authentication', [
      * */
     $rootScope.$on("$stateChangeError", function (event, toState, toParams, fromState, fromParams, error) {
       if (error === "AUTH_REQUIRED") {
+        console.log("Not authorized to access: ", toState.url);
         $location.path(UNAUTHORIZED_DEFAULT_ROUTE);
       }
     });
@@ -43,7 +44,7 @@ angular.module('authentication', [
         console.log("Logged in as: ", authData.uid);
         updateCurrentAuthData(authData);
       } else {
-        console.log("Logged out");
+        console.log("Not authenticated.");
         $ionicLoading.hide();
         $location.path(UNAUTHORIZED_DEFAULT_ROUTE);
       }
@@ -56,7 +57,6 @@ angular.module('authentication', [
       $rootScope.currentAuthData = authData;
       firebaseFactory.child("users").child(authData.uid).once('value', function (snapshot) {
         var userData = snapshot.val();
-        // To Update AngularJS $scope either use $apply or $timeout
         $rootScope.$apply(function () {
           $rootScope.currentUser = userData;
         });

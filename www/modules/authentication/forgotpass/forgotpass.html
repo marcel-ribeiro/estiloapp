@@ -1,0 +1,37 @@
+<ion-view view-title="{{ 'FORGOTPASS_TITLE' | translate }}">
+  <ion-content class="authentication-bg">
+
+    <!-- button to return -->
+    <div class="row light">
+      <div class="col col-100 text-left">
+        <a class="button icon-left ion-chevron-left button-clear button-light" ui-sref="login"></a>
+      </div>
+    </div>
+
+    <div class="row light">
+      <div class="col col-90 col-offset-5 text-center">
+        <div class="text-center padding padding" translate="FORGOTPASS_INSTRUCTIONS"></div>
+      </div>
+    </div>
+
+    <div class="row light">
+      <div class="col col-90 col-offset-5 text-center">
+        <!-- Forgot password form -->
+        <form name="forgotPassForm" ng-submit="forgotpass(forgotPassUser)" novalidate>
+          <div class="list">
+            <label class="item item-input">
+              <input type="email" name="email" ng-model="forgotPassUser.email" class="form-control" required
+                     placeholder="{{ 'FORGOTPASS_FORM_EMAIL' | translate }}">
+            </label>
+          </div>
+
+          <!-- Signup button -->
+          <button class="button button-royal button-block" translate="FORGOTPASS_FORM_BUTTON" type="submit"
+                  ng-disabled="forgotPassForm.$invalid"/>
+        </form>
+
+      </div>
+    </div>
+
+  </ion-content>
+</ion-view>

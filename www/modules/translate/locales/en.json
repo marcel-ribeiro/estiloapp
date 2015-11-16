@@ -26,6 +26,11 @@
   "LOGIN_FORM_INCOMPLETE": "Looks like your form is incomplete. Can you please double check and submit again?",
   "LOGIN_ERROR_TITLE": "Log In Error",
 
+  "FORGOTPASS_TITLE": "Forgot Password",
+  "FORGOTPASS_INSTRUCTIONS": "Please enter your email address and we'll send you an email to reset your password.",
+  "FORGOTPASS_FORM_EMAIL": "Email Address",
+  "FORGOTPASS_FORM_BUTTON": "Reset Password",
+
   "SIGNUP_TITLE": "Sign Up",
   "SIGNUP_FORM_NAME": "Full Name",
   "SIGNUP_FORM_EMAIL": "Email Address",
