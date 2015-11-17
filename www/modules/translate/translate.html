@@ -1,11 +1,11 @@
 <ion-view view-title="Translate">
   <ion-content ng-controller="translate.controller">
-    <h1 translate="TRANSLATE_TITLE"></h1>
+    <h1 translate="TRANSLATE.TITLE"></h1>
 
     <div class="row">
       <div class="col col-offset-25 col-50 text-center">
         <label class="item item-input item-select">
-          <div class="input-label" translate="TRANSLATE_LANGUAGE_LABEL"></div>
+          <div class="input-label" translate="TRANSLATE.LANGUAGE_LABEL"></div>
           <select ng-options="v as k for (k,v) in locales" ng-model="localeSelected" ng-change="switchLanguage(localeSelected)"></select>
         </label>
       </div>
@@ -19,9 +19,9 @@
 
     <div class="row">
       <div class="col col-100 text-center">
-        <h1 class="royal" translate="TITLE"></h1>
+        <h1 class="royal" translate="TRANSLATE.TITLE"></h1>
 
-        <p class="assertive">{{ 'FOO' | translate }}</p>
+        <p class="assertive">{{ 'TRANSLATE.FOO' | translate }}</p>
       </div>
     </div>
   </ion-content>

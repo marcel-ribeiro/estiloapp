@@ -1,4 +1,4 @@
-<ion-view view-title="{{ 'SIGNUP_TITLE' | translate }}">
+<ion-view view-title="{{ 'SIGNUP.TITLE' | translate }}">
   <ion-content class="authentication-bg">
 
     <!-- button to return -->
@@ -17,20 +17,20 @@
           <div class="list">
             <label class="item item-input">
               <input type="text" name="name" ng-model="signupUser.name" class="form-control" required
-                     placeholder="{{ 'SIGNUP_FORM_NAME' | translate }}">
+                     placeholder="{{ 'SIGNUP.FORM_NAME' | translate }}">
             </label>
             <label class="item item-input">
               <input type="email" name="email" ng-model="signupUser.email" class="form-control" required
-                     placeholder="{{ 'SIGNUP_FORM_EMAIL' | translate }}">
+                     placeholder="{{ 'SIGNUP.FORM_EMAIL' | translate }}">
             </label>
             <label class="item item-input">
               <input type="password" name="password" ng-model="signupUser.password" class="form-control" required
-                     placeholder="{{ 'SIGNUP_FORM_PASSWORD' | translate }}">
+                     placeholder="{{ 'SIGNUP.FORM_PASSWORD' | translate }}">
             </label>
           </div>
 
           <!-- Signup button -->
-          <button class="button button-royal button-block" translate="SIGNUP_FORM_BUTTON" type="submit"
+          <button class="button button-royal button-block" translate="SIGNUP.FORM_BUTTON" type="submit"
                   ng-disabled="signupForm.$invalid"/>
         </form>
 

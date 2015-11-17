@@ -1,4 +1,4 @@
-<ion-view view-title="{{ 'LOGIN_TITLE' | translate }}">
+<ion-view view-title="{{ 'LOGIN.TITLE' | translate }}">
   <ion-content class="authentication-bg">
 
     <!-- button to return -->
@@ -14,7 +14,7 @@
 
         <!-- Forgot password text -->
         <div class="col col-100 text-left">
-          <a class="light" translate="LOGIN_FORGOT_PASSWORD" ui-sref="forgotpass"></a>
+          <a class="light" translate="LOGIN.FORGOT_PASSWORD" ui-sref="forgotpass"></a>
         </div>
 
       </div>
@@ -28,16 +28,16 @@
           <div class="list">
             <label class="item item-input">
               <input type="email" name="email" ng-model="loginUser.email" class="form-control" required
-                     placeholder="{{ 'LOGIN_FORM_EMAIL' | translate }}">
+                     placeholder="{{ 'LOGIN.FORM_EMAIL' | translate }}">
             </label>
             <label class="item item-input">
               <input type="password" name="password" ng-model="loginUser.password" class="form-control" required
-                     placeholder="{{ 'LOGIN_FORM_PASSWORD' | translate }}">
+                     placeholder="{{ 'LOGIN.FORM_PASSWORD' | translate }}">
             </label>
           </div>
 
           <!-- Login button -->
-          <button class="button  button-royal button-block" translate="LOGIN_FORM_BUTTON" type="submit"
+          <button class="button  button-royal button-block" translate="LOGIN.FORM_BUTTON" type="submit"
                   ng-disabled="loginForm.$invalid"/>
         </form>
 

@@ -5,8 +5,8 @@ angular.module('forgotpass.controller', [])
 
     $scope.forgotpass = function (user) {
       if (!user || !user.email) {
-        var errorTitle = $translate('SIGNUP_ERROR_TITLE');
-        var errorMsg = $translate('SIGNUP_FORM_INCOMPLETE');
+        var errorTitle = $translate('SIGNUP.ERROR_TITLE');
+        var errorMsg = $translate('SIGNUP.FORM_INCOMPLETE');
         popupService.displayAlertPopup(errorTitle, errorMsg);
         return;
       }
@@ -23,8 +23,8 @@ angular.module('forgotpass.controller', [])
       }).then(function () {
         console.log("Password reset email sent successfully!");
 
-        var title = $translate('FORGOTPASS_TITLE');
-        var msg = $translate('FORGOTPASS_SUCCESS', {email: user.email});
+        var title = $translate('FORGOTPASS.TITLE');
+        var msg = $translate('FORGOTPASS.SUCCESS', {email: user.email});
         popupService.displayCordovaToast(title, msg);
 
         $state.go(UNAUTHORIZED_DEFAULT_ROUTE, {}, {reload: true});
@@ -32,7 +32,7 @@ angular.module('forgotpass.controller', [])
       }).catch(function (error) {
         console.log("Error sending reset email: ", error.message);
 
-        var errorTitle = $translate('SIGNUP_ERROR_TITLE');
+        var errorTitle = $translate('SIGNUP.ERROR_TITLE');
         var errorMsg = $translate(error.code) != error.code ? $translate(error.code) : error.message;
         popupService.displayAlertPopup(errorTitle, errorMsg);
 

@@ -6,8 +6,8 @@ angular.module('login.controller', [])
 
     $scope.login = function (user) {
       if (!user || !user.email || !user.password) {
-        var errorTitle = $translate('LOGIN_ERROR_TITLE');
-        var errorMsg = $translate('LOGIN_FORM_INCOMPLETE');
+        var errorTitle = $translate('LOGIN.ERROR_TITLE');
+        var errorMsg = $translate('LOGIN.FORM_INCOMPLETE');
         popupService.displayAlertPopup(errorTitle, errorMsg);
         return;
       }
@@ -39,7 +39,7 @@ angular.module('login.controller', [])
       }).catch(function (error) {
         console.log("Error logging in: ", error.message);
 
-        var errorTitle = $translate('LOGIN_ERROR_TITLE');
+        var errorTitle = $translate('LOGIN.ERROR_TITLE');
         var errorMsg = $translate(error.code) != error.code ? $translate(error.code) : error.message;
         popupService.displayAlertPopup(errorTitle, errorMsg);
 

@@ -1,4 +1,4 @@
-<ion-view view-title="{{ 'FORGOTPASS_TITLE' | translate }}">
+<ion-view view-title="{{ 'FORGOTPASS.TITLE' | translate }}">
   <ion-content class="authentication-bg">
 
     <!-- button to return -->
@@ -10,7 +10,7 @@
 
     <div class="row light">
       <div class="col col-90 col-offset-5 text-center">
-        <div class="text-center padding padding" translate="FORGOTPASS_INSTRUCTIONS"></div>
+        <div class="text-center padding padding" translate="FORGOTPASS.INSTRUCTIONS"></div>
       </div>
     </div>
 
@@ -21,12 +21,12 @@
           <div class="list">
             <label class="item item-input">
               <input type="email" name="email" ng-model="forgotPassUser.email" class="form-control" required
-                     placeholder="{{ 'FORGOTPASS_FORM_EMAIL' | translate }}">
+                     placeholder="{{ 'FORGOTPASS.FORM_EMAIL' | translate }}">
             </label>
           </div>
 
           <!-- Signup button -->
-          <button class="button button-royal button-block" translate="FORGOTPASS_FORM_BUTTON" type="submit"
+          <button class="button button-royal button-block" translate="FORGOTPASS.FORM_BUTTON" type="submit"
                   ng-disabled="forgotPassForm.$invalid"/>
         </form>
 

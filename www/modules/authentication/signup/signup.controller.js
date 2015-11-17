@@ -5,8 +5,8 @@ angular.module('signup.controller', [])
 
     $scope.signup = function (user) {
       if (!user || !user.email || !user.password || !user.name) {
-        var errorTitle = $translate('SIGNUP_ERROR_TITLE');
-        var errorMsg = $translate('SIGNUP_FORM_INCOMPLETE');
+        var errorTitle = $translate('SIGNUP.ERROR_TITLE');
+        var errorMsg = $translate('SIGNUP.FORM_INCOMPLETE');
         popupService.displayAlertPopup(errorTitle, errorMsg);
         return;
       }
@@ -34,7 +34,7 @@ angular.module('signup.controller', [])
       }).catch(function (error) {
         console.log("Error signing up: ", error.message);
 
-        var errorTitle = $translate('SIGNUP_ERROR_TITLE');
+        var errorTitle = $translate('SIGNUP.ERROR_TITLE');
         var errorMsg = $translate(error.code) != error.code ? $translate(error.code) : error.message;
         popupService.displayAlertPopup(errorTitle, errorMsg);
 

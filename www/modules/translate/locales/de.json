@@ -2,5 +2,7 @@
 "TITLE": "Hallo",
 "FOO": "Dies ist ein Absatz",
 
-"MENU_LOGIN": "Login"
+  "MENU": {
+    "LOGIN": "Login"
+  }
 }
