@@ -1,14 +1,14 @@
 angular.module('login.controller', [])
 
 
-  .controller('loginController', function ($scope, $rootScope, $state, $ionicLoading, $ionicPopup, $filter, firebaseFactory, authenticationFactory, APP_DEFAULT_ROUTE) {
+  .controller('loginController', function ($scope, $rootScope, $state, $ionicLoading, $filter, firebaseFactory, authenticationFactory, popupService, APP_DEFAULT_ROUTE) {
     var $translate = $filter('translate');
 
     $scope.login = function (user) {
       if (!user || !user.email || !user.password) {
         var errorTitle = $translate('LOGIN_ERROR_TITLE');
         var errorMsg = $translate('LOGIN_FORM_INCOMPLETE');
-        showErrorAlert(errorTitle, errorMsg);
+        popupService.displayAlertPopup(errorTitle, errorMsg);
         return;
       }
 
@@ -39,28 +39,11 @@ angular.module('login.controller', [])
 
         var errorTitle = $translate('LOGIN_ERROR_TITLE');
         var errorMsg = getErrorMsg(error);
-        showErrorAlert(errorTitle, errorMsg);
+        popupService.displayAlertPopup(errorTitle, errorMsg);
       }).finally(function () {
         $ionicLoading.hide();
       });
 
-    };
-
-    /*
-     * Displays the alert with the error messages
-     * */
-    var showErrorAlert = function (errorTitle, errorMsg) {
-      var alertPopup = $ionicPopup.alert({
-        title: errorTitle,
-        template: errorMsg,
-        buttons: [{
-          text: 'OK',
-          type: 'button-royal'
-        }]
-      });
-      alertPopup.then(function (res) {
-        console.log(errorMsg);
-      });
     };
 
     /*

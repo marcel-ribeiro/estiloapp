@@ -1,17 +1,19 @@
 angular.module('forgotpass.controller', [])
 
-  .controller('forgotpassController', function ($scope, $state, $ionicModal, $ionicLoading, $ionicPopup, $cordovaToast, $filter, firebaseFactory, authenticationFactory, UNAUTHORIZED_DEFAULT_ROUTE) {
+  .controller('forgotpassController', function ($scope, $state, $ionicModal, $ionicLoading, $ionicPopup, $cordovaToast, $filter, firebaseFactory, authenticationFactory, popupService, UNAUTHORIZED_DEFAULT_ROUTE) {
     var $translate = $filter('translate');
 
-    $scope.displaySucessMsg = function (){
-      displaySucessMsg("marcel@test.com");
+    $scope.displayCordovaToast = function () {
+      var title = $translate('FORGOTPASS_TITLE');
+      var msg = $translate('FORGOTPASS_SUCCESS', {email: "marcel@test.com"});
+      popupService.displayCordovaToast(title, msg);
     };
 
     $scope.forgotpass = function (user) {
       if (!user || !user.email) {
         var errorTitle = $translate('SIGNUP_ERROR_TITLE');
         var errorMsg = $translate('SIGNUP_FORM_INCOMPLETE');
-        showErrorAlert(errorTitle, errorMsg);
+        popupService.displayAlertPopup(errorTitle, errorMsg);
         return;
       }
 
@@ -27,7 +29,9 @@ angular.module('forgotpass.controller', [])
       }).then(function () {
         console.log("Password reset email sent successfully!");
 
-        displaySucessMsg(user.email);
+        var title = $translate('FORGOTPASS_TITLE');
+        var msg = $translate('FORGOTPASS_SUCCESS', {email: user.email});
+        popupService.displayCordovaToast(title, msg);
 
         $state.go(UNAUTHORIZED_DEFAULT_ROUTE, {}, {reload: true});
 
@@ -36,56 +40,24 @@ angular.module('forgotpass.controller', [])
 
         var errorTitle = $translate('SIGNUP_ERROR_TITLE');
         var errorMsg = getErrorMsg(error);
-        showErrorAlert(errorTitle, errorMsg);
+        popupService.displayAlertPopup(errorTitle, errorMsg);
+
       }).finally(function () {
         $ionicLoading.hide();
       });
 
+
+      /*
+       * Retrieves the error msg to be displayed (according to the locale)
+       * */
+      var getErrorMsg = function (error) {
+        var errorMsg = $translate(error.code);
+
+        if (!errorMsg && error) {
+          errorMsg = error.message;
+        }
+        return errorMsg;
+      };
     };
-
-    var displaySucessMsg = function (userEmail) {
-      var title = $translate('FORGOTPASS_TITLE');
-      var msg = $translate('FORGOTPASS_SUCCESS', { email: userEmail });
-      try {
-        $cordovaToast.showLongBottom(msg)
-          .then(function (success) {
-            // Do something on success
-          }, function (error) {
-            // Handle error
-          });
-      }catch(e){
-        showErrorAlert(title,msg);
-      }
-    };
-
-    /*
-     * Displays the alert with the error messages
-     * */
-    var showErrorAlert = function (errorTitle, errorMsg) {
-      var alertPopup = $ionicPopup.alert({
-        title: errorTitle,
-        template: errorMsg,
-        buttons: [{
-          text: 'OK',
-          type: 'button-royal'
-        }]
-      });
-      alertPopup.then(function (res) {
-        console.log(errorMsg);
-      });
-    };
-
-    /*
-     * Retrieves the error msg to be displayed (according to the locale)
-     * */
-    var getErrorMsg = function (error) {
-      var errorMsg = $translate(error.code);
-
-      if (!errorMsg && error) {
-        errorMsg = error.message;
-      }
-      return errorMsg;
-    };
-
 
   });

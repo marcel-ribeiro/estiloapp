@@ -1,13 +1,13 @@
 angular.module('signup.controller', [])
 
-  .controller('signupController', function ($scope, $state, $ionicModal, $ionicLoading, $ionicPopup, $filter, firebaseFactory, authenticationFactory, APP_DEFAULT_ROUTE) {
+  .controller('signupController', function ($scope, $state, $ionicModal, $ionicLoading, $ionicPopup, $filter, firebaseFactory, authenticationFactory, popupService, APP_DEFAULT_ROUTE) {
     var $translate = $filter('translate');
 
     $scope.signup = function (user) {
       if (!user || !user.email || !user.password || !user.name) {
         var errorTitle = $translate('SIGNUP_ERROR_TITLE');
         var errorMsg = $translate('SIGNUP_FORM_INCOMPLETE');
-        showErrorAlert(errorTitle, errorMsg);
+        popupService.displayAlertPopup(errorTitle, errorMsg);
         return;
       }
 
@@ -34,28 +34,11 @@ angular.module('signup.controller', [])
 
         var errorTitle = $translate('SIGNUP_ERROR_TITLE');
         var errorMsg = getErrorMsg(error);
-        showErrorAlert(errorTitle, errorMsg);
+        popupService.displayAlertPopup(errorTitle, errorMsg);
       }).finally(function () {
         $ionicLoading.hide();
       });
 
-    };
-
-    /*
-     * Displays the alert with the error messages
-     * */
-    var showErrorAlert = function (errorTitle, errorMsg) {
-      var alertPopup = $ionicPopup.alert({
-        title: errorTitle,
-        template: errorMsg,
-        buttons: [{
-          text: 'OK',
-          type: 'button-royal'
-        }]
-      });
-      alertPopup.then(function (res) {
-        console.log(errorMsg);
-      });
     };
 
     /*
