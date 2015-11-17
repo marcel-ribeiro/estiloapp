@@ -24,7 +24,9 @@ angular.module('login.controller', [])
         password: user.password
       }).then(function (authData) {
         console.log("Logged in as: " + authData.uid);
+
         $rootScope.currentAuthData = authData;
+
         firebaseFactory.child("users").child(authData.uid).once('value', function (snapshot) {
           var userData = snapshot.val();
           // To Update AngularJS $scope either use $apply or $timeout
@@ -38,24 +40,13 @@ angular.module('login.controller', [])
         console.log("Error logging in: ", error.message);
 
         var errorTitle = $translate('LOGIN_ERROR_TITLE');
-        var errorMsg = getErrorMsg(error);
+        var errorMsg = $translate(error.code) != error.code ? $translate(error.code) : error.message;
         popupService.displayAlertPopup(errorTitle, errorMsg);
+
       }).finally(function () {
         $ionicLoading.hide();
       });
 
-    };
-
-    /*
-     * Retrieves the error msg to be displayed (according to the locale)
-     * */
-    var getErrorMsg = function (error) {
-      var errorMsg = $translate(error.code);
-
-      if (!errorMsg && error) {
-        errorMsg = error.message;
-      }
-      return errorMsg;
     };
 
 

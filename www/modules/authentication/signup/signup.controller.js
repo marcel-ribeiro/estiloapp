@@ -1,6 +1,6 @@
 angular.module('signup.controller', [])
 
-  .controller('signupController', function ($scope, $state, $ionicModal, $ionicLoading, $ionicPopup, $filter, firebaseFactory, authenticationFactory, popupService, APP_DEFAULT_ROUTE) {
+  .controller('signupController', function ($scope, $state, $ionicLoading, $filter, firebaseFactory, authenticationFactory, popupService, APP_DEFAULT_ROUTE) {
     var $translate = $filter('translate');
 
     $scope.signup = function (user) {
@@ -12,6 +12,7 @@ angular.module('signup.controller', [])
       }
 
       console.log("Signup with email: ", user.email);
+      //popupService.displayAlertPopup(errorTitle, errorMsg);
       $ionicLoading.show({
         template: '<ion-spinner></ion-spinner>',
         hideOnStageChange: true
@@ -22,6 +23,7 @@ angular.module('signup.controller', [])
         password: user.password
       }).then(function (userData) {
         console.log("User created with uid: ", userData.uid);
+
         firebaseFactory.child("users").child(userData.uid).set({
           email: user.email,
           name: user.name
@@ -33,25 +35,13 @@ angular.module('signup.controller', [])
         console.log("Error signing up: ", error.message);
 
         var errorTitle = $translate('SIGNUP_ERROR_TITLE');
-        var errorMsg = getErrorMsg(error);
+        var errorMsg = $translate(error.code) != error.code ? $translate(error.code) : error.message;
         popupService.displayAlertPopup(errorTitle, errorMsg);
+
       }).finally(function () {
         $ionicLoading.hide();
       });
 
     };
-
-    /*
-     * Retrieves the error msg to be displayed (according to the locale)
-     * */
-    var getErrorMsg = function (error) {
-      var errorMsg = $translate(error.code);
-
-      if (!errorMsg && error) {
-        errorMsg = error.message;
-      }
-      return errorMsg;
-    };
-
 
   });
