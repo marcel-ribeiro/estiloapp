@@ -1,7 +1,7 @@
 angular.module('login.controller', [])
 
 
-  .controller('LoginController', function ($scope, $rootScope, $state, $ionicLoading, $filter, authenticationService, popupService, APP_DEFAULT_ROUTE) {
+  .controller('LoginController', function ($scope, $rootScope, $state, $ionicLoading, $filter, AuthenticationService, popupService, APP_DEFAULT_ROUTE) {
     var $translate = $filter('translate');
 
     $scope.login = function (user) {
@@ -18,7 +18,7 @@ angular.module('login.controller', [])
         hideOnStageChange: true
       });
 
-      authenticationService.loginWithEmail(user)
+      AuthenticationService.loginWithEmail(user)
         .then(function (authData) {
 
           console.log("Logged in as: " + authData.uid);

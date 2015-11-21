@@ -1,6 +1,6 @@
 angular.module('signup.controller', [])
 
-  .controller('SignupController', function ($scope, $state, $ionicLoading, $filter, authenticationService, popupService, APP_DEFAULT_ROUTE) {
+  .controller('SignupController', function ($scope, $state, $ionicLoading, $filter, AuthenticationService, popupService, APP_DEFAULT_ROUTE) {
     var $translate = $filter('translate');
 
     $scope.signup = function (user) {
@@ -18,7 +18,7 @@ angular.module('signup.controller', [])
         hideOnStageChange: true
       });
 
-      authenticationService.signupWithEmail(user)
+      AuthenticationService.signupWithEmail(user)
         .then(function (userData) {
 
           console.log("User created with uid: ", userData.uid);

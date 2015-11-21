@@ -1,6 +1,6 @@
 angular.module('forgotpass.controller', [])
 
-  .controller('ForgotpassController', function ($scope, $state, $ionicLoading, $filter, authenticationService, popupService, UNAUTHORIZED_DEFAULT_ROUTE) {
+  .controller('ForgotpassController', function ($scope, $state, $ionicLoading, $filter, AuthenticationService, popupService, UNAUTHORIZED_DEFAULT_ROUTE) {
     var $translate = $filter('translate');
 
     $scope.forgotpass = function (user) {
@@ -18,7 +18,7 @@ angular.module('forgotpass.controller', [])
         hideOnStageChange: true
       });
 
-      authenticationService.resetPassword(user)
+      AuthenticationService.resetPassword(user)
         .then(function () {
 
           console.log("Password reset email sent successfully!");

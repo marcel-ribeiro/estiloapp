@@ -4,7 +4,7 @@ angular.module('authentication', [
   'authentication.service'
 ])
 
-.run(function ($ionicPlatform, $rootScope, $location, $ionicLoading, firebaseFactory, authenticationFactory, UNAUTHORIZED_DEFAULT_ROUTE) {
+.run(function ($ionicPlatform, $rootScope, $location, $ionicLoading, firebaseFactory, AuthenticationFactory, UNAUTHORIZED_DEFAULT_ROUTE) {
   $ionicPlatform.ready(function () {
 
     /*
@@ -21,7 +21,7 @@ angular.module('authentication', [
       $rootScope.currentUser = null;
       $rootScope.currentAuthData = null;
 
-      authenticationFactory.$unauth();
+      AuthenticationFactory.$unauth();
     };
 
 
@@ -40,7 +40,7 @@ angular.module('authentication', [
     * Method invoked every time there's a change in the user authentication.
     * Responsible for setting and cleaning data regarding the authentication in the RrootScope
     * */
-    authenticationFactory.$onAuth(function (authData) {
+    AuthenticationFactory.$onAuth(function (authData) {
       if (authData) {
         console.log("Logged in as: ", authData.uid);
         updateCurrentAuthData(authData);

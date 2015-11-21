@@ -1,6 +1,6 @@
 angular.module('authentication.service', [])
 
-  .service('authenticationService', function (authenticationFactory, firebaseFactory) {
+  .service('AuthenticationService', function (AuthenticationFactory, firebaseFactory) {
     this.loginWithEmail = function (user) {
       return authenticateWithPassword(user);
     };
@@ -23,7 +23,7 @@ angular.module('authentication.service', [])
     * */
     var createUser = function (user) {
       console.log("Creating user with email: ", user.email);
-      return authenticationFactory.$createUser({
+      return AuthenticationFactory.$createUser({
         email: user.email,
         password: user.password
       });
@@ -45,7 +45,7 @@ angular.module('authentication.service', [])
     * */
     var authenticateWithPassword = function (user) {
       console.log("Authenticating user with email: ", user.email);
-      return authenticationFactory.$authWithPassword({
+      return AuthenticationFactory.$authWithPassword({
         email: user.email,
         password: user.password
       });
@@ -56,7 +56,7 @@ angular.module('authentication.service', [])
     * */
     var restPassword = function(user){
       console.log("Resetting password for user with email: ", user.email);
-      return authenticationFactory.$resetPassword({
+      return AuthenticationFactory.$resetPassword({
         email: user.email
       })
     }

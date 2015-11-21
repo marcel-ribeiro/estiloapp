@@ -7,7 +7,7 @@ angular.module('app', [
   'starter'
 ])
 
-  .run(function ($ionicPlatform, $rootScope, $location, $ionicLoading, authenticationFactory) {
+  .run(function ($ionicPlatform, $rootScope, $location, $ionicLoading, AuthenticationFactory) {
     $ionicPlatform.ready(function () {
       // Hide the accessory bar by default (remove this to show the accessory bar above the keyboard
       // for form inputs)
@@ -108,8 +108,8 @@ angular.module('app', [
     $urlRouterProvider.otherwise('/welcome');
 
 
-    function requireAuth(authenticationFactory) {
-      return authenticationFactory.$requireAuth();
+    function requireAuth(AuthenticationFactory) {
+      return AuthenticationFactory.$requireAuth();
     }
 
   });
