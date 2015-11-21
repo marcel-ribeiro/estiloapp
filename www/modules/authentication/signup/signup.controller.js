@@ -18,7 +18,7 @@ angular.module('signup.controller', [])
         hideOnStageChange: true
       });
 
-      authenticationService.createUser(user)
+      authenticationService.signupWithEmail(user)
         .then(function (userData) {
           console.log("User created with uid: ", userData.uid);
 

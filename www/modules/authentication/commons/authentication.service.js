@@ -1,36 +1,11 @@
 angular.module('authentication.service', [])
 
-  .service('authenticationService', function ($state, $filter, $ionicLoading, $timeout, $q, authenticationFactory, firebaseFactory, popupService, APP_DEFAULT_ROUTE) {
-    var $translate = $filter('translate');
-
-
-    this.authenticateWithPassword = function (user) {
-      $ionicLoading.show({
-        template: '<ion-spinner></ion-spinner>',
-        hideOnStageChange: true
-      });
-
-      authenticationFactory.$authWithPassword({
-        email: user.email,
-        password: user.password
-      }).then(function (authData) {
-        console.log("Logged in as: " + authData.uid);
-
-        $state.go(APP_DEFAULT_ROUTE, {}, {reload: true});
-      }).catch(function (error) {
-        console.log("Error logging in: ", error.message);
-
-        var errorTitle = $translate('LOGIN.ERROR_TITLE');
-        var errorMsg = $translate(error.code) != error.code ? $translate(error.code) : error.message;
-        popupService.displayAlertPopup(errorTitle, errorMsg);
-
-      }).finally(function () {
-        $ionicLoading.hide();
-      });
-
+  .service('authenticationService', function (authenticationFactory, firebaseFactory) {
+    this.loginWithEmail = function (user) {
+      return authenticateWithPassword(user);
     };
 
-    this.createUser = function (user) {
+    this.signupWithEmail = function (user) {
       return createUser(user)
         .then(function (userData) {
           console.log("User created with uid: ", userData.uid);

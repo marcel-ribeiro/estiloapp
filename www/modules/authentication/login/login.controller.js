@@ -1,7 +1,7 @@
 angular.module('login.controller', [])
 
 
-  .controller('loginController', function ($scope, $rootScope, $state, $ionicLoading, $filter, firebaseFactory, authenticationFactory, popupService, APP_DEFAULT_ROUTE) {
+  .controller('loginController', function ($scope, $rootScope, $state, $ionicLoading, $filter, authenticationService, popupService, APP_DEFAULT_ROUTE) {
     var $translate = $filter('translate');
 
     $scope.login = function (user) {
@@ -18,34 +18,21 @@ angular.module('login.controller', [])
         hideOnStageChange: true
       });
 
+      authenticationService.loginWithEmail(user)
+        .then(function (authData) {
+          console.log("Logged in as: " + authData.uid);
 
-      authenticationFactory.$authWithPassword({
-        email: user.email,
-        password: user.password
-      }).then(function (authData) {
-        console.log("Logged in as: " + authData.uid);
+          $state.go(APP_DEFAULT_ROUTE, {}, {reload: true});
+        }).catch(function (error) {
+          console.log("Error logging in: ", error.message);
 
-        $rootScope.currentAuthData = authData;
+          var errorTitle = $translate('LOGIN.ERROR_TITLE');
+          var errorMsg = $translate(error.code) != error.code ? $translate(error.code) : error.message;
+          popupService.displayAlertPopup(errorTitle, errorMsg);
 
-        firebaseFactory.child("users").child(authData.uid).once('value', function (snapshot) {
-          var userData = snapshot.val();
-          // To Update AngularJS $scope either use $apply or $timeout
-          $scope.$apply(function () {
-            $rootScope.currentUser = userData;
-          });
+        }).finally(function () {
+          $ionicLoading.hide();
         });
-
-        $state.go(APP_DEFAULT_ROUTE, {}, {reload: true});
-      }).catch(function (error) {
-        console.log("Error logging in: ", error.message);
-
-        var errorTitle = $translate('LOGIN.ERROR_TITLE');
-        var errorMsg = $translate(error.code) != error.code ? $translate(error.code) : error.message;
-        popupService.displayAlertPopup(errorTitle, errorMsg);
-
-      }).finally(function () {
-        $ionicLoading.hide();
-      });
 
     };
 
