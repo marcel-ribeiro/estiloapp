@@ -4,7 +4,7 @@ angular.module('authentication', [
   'authentication.service'
 ])
 
-.run(function ($ionicPlatform, $rootScope, $location, $ionicLoading, firebaseFactory, AuthenticationFactory, UNAUTHORIZED_DEFAULT_ROUTE) {
+.run(function ($ionicPlatform, $rootScope, $location, $ionicLoading, FirebaseFactory, AuthenticationFactory, UNAUTHORIZED_DEFAULT_ROUTE) {
   $ionicPlatform.ready(function () {
 
     /*
@@ -56,7 +56,7 @@ angular.module('authentication', [
      * */
     var updateCurrentAuthData = function (authData) {
       $rootScope.currentAuthData = authData;
-      firebaseFactory.child("users").child(authData.uid).once('value', function (snapshot) {
+      FirebaseFactory.child("users").child(authData.uid).once('value', function (snapshot) {
         var userData = snapshot.val();
         $rootScope.$apply(function () {
           $rootScope.currentUser = userData;

@@ -1,6 +1,6 @@
 angular.module('starter.controller', ['core.constants'])
 
-  .controller('playlistsController', function ($scope) {
+  .controller('PlaylistsController', function ($scope) {
     $scope.playlists = [
       {title: 'Reggae', id: 1},
       {title: 'Chill', id: 2},

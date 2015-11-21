@@ -1,6 +1,6 @@
 angular.module('authentication.service', [])
 
-  .service('AuthenticationService', function (AuthenticationFactory, firebaseFactory) {
+  .service('AuthenticationService', function (AuthenticationFactory, FirebaseFactory) {
     this.loginWithEmail = function (user) {
       return authenticateWithPassword(user);
     };
@@ -34,7 +34,7 @@ angular.module('authentication.service', [])
     * */
     var updateNewUser = function (user, userData) {
       console.log("Updating user with uid: ", userData.uid);
-      return firebaseFactory.child("users").child(userData.uid).set({
+      return FirebaseFactory.child("users").child(userData.uid).set({
         email: user.email,
         name: user.name
       })

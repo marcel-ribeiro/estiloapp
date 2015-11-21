@@ -73,7 +73,7 @@ angular.module('app', [
         views: {
           'menuContent': {
             templateUrl: 'modules/translate/translate.html',
-            controller: 'translate.controller',
+            controller: 'TranslateController',
             resolve: {
               "currentAuth": requireAuth
             }
@@ -85,7 +85,7 @@ angular.module('app', [
         views: {
           'menuContent': {
             templateUrl: 'modules/starter/playlists.html',
-            controller: 'playlistsController',
+            controller: 'PlaylistsController',
             resolve: {
               "currentAuth": requireAuth
             }
