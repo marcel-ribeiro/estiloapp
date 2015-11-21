@@ -20,18 +20,21 @@ angular.module('login.controller', [])
 
       authenticationService.loginWithEmail(user)
         .then(function (authData) {
+
           console.log("Logged in as: " + authData.uid);
-
           $state.go(APP_DEFAULT_ROUTE, {}, {reload: true});
-        }).catch(function (error) {
-          console.log("Error logging in: ", error.message);
 
+        }).catch(function (error) {
+
+          console.log("Error logging in: ", error.message);
           var errorTitle = $translate('LOGIN.ERROR_TITLE');
           var errorMsg = $translate(error.code) != error.code ? $translate(error.code) : error.message;
           popupService.displayAlertPopup(errorTitle, errorMsg);
 
         }).finally(function () {
+
           $ionicLoading.hide();
+
         });
 
     };

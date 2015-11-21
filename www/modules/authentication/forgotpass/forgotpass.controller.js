@@ -1,6 +1,6 @@
 angular.module('forgotpass.controller', [])
 
-  .controller('forgotpassController', function ($scope, $state, $ionicLoading, $filter, firebaseFactory, authenticationFactory, popupService, UNAUTHORIZED_DEFAULT_ROUTE) {
+  .controller('forgotpassController', function ($scope, $state, $ionicLoading, $filter, authenticationService, popupService, UNAUTHORIZED_DEFAULT_ROUTE) {
     var $translate = $filter('translate');
 
     $scope.forgotpass = function (user) {
@@ -18,27 +18,27 @@ angular.module('forgotpass.controller', [])
         hideOnStageChange: true
       });
 
-      authenticationFactory.$resetPassword({
-        email: user.email
-      }).then(function () {
-        console.log("Password reset email sent successfully!");
+      authenticationService.resetPassword(user)
+        .then(function () {
 
-        var title = $translate('FORGOTPASS.TITLE');
-        var msg = $translate('FORGOTPASS.SUCCESS', {email: user.email});
-        popupService.displayCordovaToast(title, msg);
+          console.log("Password reset email sent successfully!");
+          var title = $translate('FORGOTPASS.TITLE');
+          var msg = $translate('FORGOTPASS.SUCCESS', {email: user.email});
+          popupService.displayCordovaToast(title, msg);
+          $state.go(UNAUTHORIZED_DEFAULT_ROUTE, {}, {reload: true});
 
-        $state.go(UNAUTHORIZED_DEFAULT_ROUTE, {}, {reload: true});
+        }).catch(function (error) {
 
-      }).catch(function (error) {
-        console.log("Error sending reset email: ", error.message);
+          console.log("Error sending reset email: ", error.message);
+          var errorTitle = $translate('SIGNUP.ERROR_TITLE');
+          var errorMsg = $translate(error.code) != error.code ? $translate(error.code) : error.message;
+          popupService.displayAlertPopup(errorTitle, errorMsg);
 
-        var errorTitle = $translate('SIGNUP.ERROR_TITLE');
-        var errorMsg = $translate(error.code) != error.code ? $translate(error.code) : error.message;
-        popupService.displayAlertPopup(errorTitle, errorMsg);
+        }).finally(function () {
 
-      }).finally(function () {
-        $ionicLoading.hide();
-      });
+          $ionicLoading.hide();
+
+        });
 
     };
 
