@@ -1,6 +1,6 @@
 angular.module('forgotpass.controller', [])
 
-  .controller('forgotpassController', function ($scope, $state, $ionicLoading, $filter, authenticationService, popupService, UNAUTHORIZED_DEFAULT_ROUTE) {
+  .controller('ForgotpassController', function ($scope, $state, $ionicLoading, $filter, authenticationService, popupService, UNAUTHORIZED_DEFAULT_ROUTE) {
     var $translate = $filter('translate');
 
     $scope.forgotpass = function (user) {

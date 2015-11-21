@@ -1,6 +1,6 @@
 angular.module('signup.controller', [])
 
-  .controller('signupController', function ($scope, $state, $ionicLoading, $filter, authenticationService, popupService, APP_DEFAULT_ROUTE) {
+  .controller('SignupController', function ($scope, $state, $ionicLoading, $filter, authenticationService, popupService, APP_DEFAULT_ROUTE) {
     var $translate = $filter('translate');
 
     $scope.signup = function (user) {

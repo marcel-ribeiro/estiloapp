@@ -34,19 +34,19 @@ angular.module('app', [
       .state('login', {
         url: '/login',
         templateUrl: 'modules/authentication/login/login.html',
-        controller: 'loginController'
+        controller: 'LoginController'
       })
 
       .state('signup', {
         url: '/signup',
         templateUrl: 'modules/authentication/signup/signup.html',
-        controller: 'signupController'
+        controller: 'SignupController'
       })
 
       .state('forgotpass', {
         url: '/forgotpass',
         templateUrl: 'modules/authentication/forgotpass/forgotpass.html',
-        controller: 'forgotpassController'
+        controller: 'ForgotpassController'
       })
 
       //Application per say
