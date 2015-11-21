@@ -1,14 +1,14 @@
 angular.module('login.controller', [])
 
 
-  .controller('LoginController', function ($scope, $rootScope, $state, $ionicLoading, $filter, AuthenticationService, popupService, APP_DEFAULT_ROUTE) {
+  .controller('LoginController', function ($scope, $rootScope, $state, $ionicLoading, $filter, AuthenticationService, PopupService, APP_DEFAULT_ROUTE) {
     var $translate = $filter('translate');
 
     $scope.login = function (user) {
       if (!user || !user.email || !user.password) {
         var errorTitle = $translate('LOGIN.ERROR_TITLE');
         var errorMsg = $translate('LOGIN.FORM_INCOMPLETE');
-        popupService.displayAlertPopup(errorTitle, errorMsg);
+        PopupService.displayAlertPopup(errorTitle, errorMsg);
         return;
       }
 
@@ -29,7 +29,7 @@ angular.module('login.controller', [])
           console.log("Error logging in: ", error.message);
           var errorTitle = $translate('LOGIN.ERROR_TITLE');
           var errorMsg = $translate(error.code) != error.code ? $translate(error.code) : error.message;
-          popupService.displayAlertPopup(errorTitle, errorMsg);
+          PopupService.displayAlertPopup(errorTitle, errorMsg);
 
         }).finally(function () {
 

@@ -1,6 +1,6 @@
 angular.module('core.utils.popup', [])
 
-  .service('popupService', function ($ionicPopup, $cordovaToast) {
+  .service('PopupService', function ($ionicPopup, $cordovaToast) {
 
     this.displayCordovaToast = function (title, msg) {
       try {

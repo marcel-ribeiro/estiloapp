@@ -1,13 +1,13 @@
 angular.module('signup.controller', [])
 
-  .controller('SignupController', function ($scope, $state, $ionicLoading, $filter, AuthenticationService, popupService, APP_DEFAULT_ROUTE) {
+  .controller('SignupController', function ($scope, $state, $ionicLoading, $filter, AuthenticationService, PopupService, APP_DEFAULT_ROUTE) {
     var $translate = $filter('translate');
 
     $scope.signup = function (user) {
       if (!user || !user.email || !user.password || !user.name) {
         var errorTitle = $translate('SIGNUP.ERROR_TITLE');
         var errorMsg = $translate('SIGNUP.FORM_INCOMPLETE');
-        popupService.displayAlertPopup(errorTitle, errorMsg);
+        PopupService.displayAlertPopup(errorTitle, errorMsg);
         return;
       }
 
@@ -29,7 +29,7 @@ angular.module('signup.controller', [])
           console.log("Error signing up: ", error.message);
           var errorTitle = $translate('SIGNUP.ERROR_TITLE');
           var errorMsg = $translate(error.code) != error.code ? $translate(error.code) : error.message;
-          popupService.displayAlertPopup(errorTitle, errorMsg);
+          PopupService.displayAlertPopup(errorTitle, errorMsg);
 
         }).finally(function () {
 
