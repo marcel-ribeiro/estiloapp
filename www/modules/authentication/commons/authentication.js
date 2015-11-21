@@ -1,6 +1,7 @@
 angular.module('authentication', [
   'core',
-  'authentication.factory'
+  'authentication.factory',
+  'authentication.service'
 ])
 
 .run(function ($ionicPlatform, $rootScope, $location, $ionicLoading, firebaseFactory, authenticationFactory, UNAUTHORIZED_DEFAULT_ROUTE) {

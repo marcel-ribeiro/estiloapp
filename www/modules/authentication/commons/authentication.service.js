@@ -1,80 +1,74 @@
 angular.module('authentication.service', [])
 
-  //.service('AuthenticationService', function ($q, $http) {
-  //  var LOCAL_TOKEN_KEY = 'yourTokenKey';
-  //  var username = '';
-  //  var isAuthenticated = false;
-  //  var role = '';
-  //  var authToken;
-  //
-  //  function loadUserCredentials() {
-  //    var token = window.localStorage.getItem(LOCAL_TOKEN_KEY);
-  //    if (token) {
-  //      useCredentials(token);
-  //    }
-  //  }
-  //
-  //  function storeUserCredentials(token) {
-  //    window.localStorage.setItem(LOCAL_TOKEN_KEY, token);
-  //    useCredentials(token);
-  //  }
-  //
-  //  function useCredentials(token) {
-  //    username = token.split('.')[0];
-  //    isAuthenticated = true;
-  //    authToken = token;
-  //
-  //    role = username;
-  //
-  //    // Set the token as header for your requests!
-  //    $http.defaults.headers.common['X-Auth-Token'] = token;
-  //  }
-  //
-  //  function destroyUserCredentials() {
-  //    authToken = undefined;
-  //    username = '';
-  //    isAuthenticated = false;
-  //    $http.defaults.headers.common['X-Auth-Token'] = undefined;
-  //    window.localStorage.removeItem(LOCAL_TOKEN_KEY);
-  //  }
-  //
-  //  var login = function (name, pw) {
-  //    return $q(function (resolve, reject) {
-  //      if ((name == 'admin' && pw == '1') || (name == 'user' && pw == '1')) {
-  //        // Make a request and receive your auth token from your server
-  //        storeUserCredentials(name + '.yourServerToken');
-  //        resolve('Login success.');
-  //      } else {
-  //        reject('Login Failed.');
-  //      }
-  //    });
-  //  };
-  //
-  //  var logout = function () {
-  //    destroyUserCredentials();
-  //  };
-  //
-  //  var isAuthorized = function (authorizedRoles) {
-  //    if (!angular.isArray(authorizedRoles)) {
-  //      authorizedRoles = [authorizedRoles];
-  //    }
-  //    return (isAuthenticated && authorizedRoles.indexOf(role) !== -1);
-  //  };
-  //
-  //  loadUserCredentials();
-  //
-  //  return {
-  //    login: login,
-  //    logout: logout,
-  //    isAuthorized: isAuthorized,
-  //    isAuthenticated: function () {
-  //      return isAuthenticated;
-  //    },
-  //    username: function () {
-  //      return username;
-  //    },
-  //    role: function () {
-  //      return role;
-  //    }
-  //  };
-  //})
+  .service('authenticationService', function ($state, $filter, $ionicLoading, $timeout, $q, authenticationFactory, firebaseFactory, popupService, APP_DEFAULT_ROUTE) {
+    var $translate = $filter('translate');
+
+
+    this.authenticateWithPassword = function (user) {
+      $ionicLoading.show({
+        template: '<ion-spinner></ion-spinner>',
+        hideOnStageChange: true
+      });
+
+      authenticationFactory.$authWithPassword({
+        email: user.email,
+        password: user.password
+      }).then(function (authData) {
+        console.log("Logged in as: " + authData.uid);
+
+        $state.go(APP_DEFAULT_ROUTE, {}, {reload: true});
+      }).catch(function (error) {
+        console.log("Error logging in: ", error.message);
+
+        var errorTitle = $translate('LOGIN.ERROR_TITLE');
+        var errorMsg = $translate(error.code) != error.code ? $translate(error.code) : error.message;
+        popupService.displayAlertPopup(errorTitle, errorMsg);
+
+      }).finally(function () {
+        $ionicLoading.hide();
+      });
+
+    };
+
+    this.createUser = function (user) {
+      return createUser(user)
+        .then(function (userData) {
+          console.log("User created with uid: ", userData.uid);
+          return updateNewUser(user, userData);
+        }).then(function () {
+          console.log("Authenticating user: ", user.email);
+          return authenticateWithPassword(user);
+        });
+    };
+
+    /*
+    * Invokes the rest call to create a new user
+    * */
+    var createUser = function (user) {
+      return authenticationFactory.$createUser({
+        email: user.email,
+        password: user.password
+      });
+    };
+
+    /*
+    * Updates the user that was recently created (should be used for the signup only)
+    * */
+    var updateNewUser = function (user, userData) {
+      return firebaseFactory.child("users").child(userData.uid).set({
+        email: user.email,
+        name: user.name
+      })
+    };
+
+    /*
+    * Invokes the rest call to authenticate a user with email and password
+    * */
+    var authenticateWithPassword = function (user) {
+      return authenticationFactory.$authWithPassword({
+        email: user.email,
+        password: user.password
+      });
+    };
+
+  });
