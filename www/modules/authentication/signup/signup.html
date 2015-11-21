@@ -1,0 +1,41 @@
+<ion-view view-title="{{ 'SIGNUP.TITLE' | translate }}">
+  <ion-content class="authentication-bg">
+
+    <!-- button to return -->
+    <div class="row light">
+      <div class="col col-100 text-left">
+        <a class="button icon-left ion-chevron-left button-clear button-light" ui-sref="welcome"></a>
+      </div>
+    </div>
+
+
+    <div class="row light">
+      <div class="col col-90 col-offset-5 text-center">
+
+        <!-- Signup form -->
+        <form name="signupForm" ng-submit="signup(signupUser)" novalidate>
+          <div class="list">
+            <label class="item item-input">
+              <input type="text" name="name" ng-model="signupUser.name" class="form-control" required
+                     placeholder="{{ 'SIGNUP.FORM_NAME' | translate }}">
+            </label>
+            <label class="item item-input">
+              <input type="email" name="email" ng-model="signupUser.email" class="form-control" required
+                     placeholder="{{ 'SIGNUP.FORM_EMAIL' | translate }}">
+            </label>
+            <label class="item item-input">
+              <input type="password" name="password" ng-model="signupUser.password" class="form-control" required
+                     placeholder="{{ 'SIGNUP.FORM_PASSWORD' | translate }}">
+            </label>
+          </div>
+
+          <!-- Signup button -->
+          <button class="button button-royal button-block" translate="SIGNUP.FORM_BUTTON" type="submit"
+                  ng-disabled="signupForm.$invalid"/>
+        </form>
+
+      </div>
+    </div>
+
+  </ion-content>
+</ion-view>

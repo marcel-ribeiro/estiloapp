@@ -1,0 +1,12 @@
+{
+  "TITLE": "Ola - JSON",
+  "FOO": "Isto eh um paragrafo",
+  "MENU": {
+    "TITLE": "Menu",
+    "LOGIN": "Login",
+    "SEARCH": "Pesquisar",
+    "TRANSLATE": "Traducao",
+    "PLAYLISTS": "Playlists",
+    "LOGOUT": "Sair"
+  }
+}
