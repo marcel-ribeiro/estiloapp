@@ -5,5 +5,6 @@ angular.module('core', [
   'firebase',
   'core.constants',
   'core.factory',
+  'core.users.service',
   'core.utils'
 ]);

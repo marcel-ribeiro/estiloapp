@@ -1,6 +1,7 @@
 angular.module('app', [
   'core',
   'authentication',
+  'welcome',
   'signup',
   'login',
   'forgotpass',
@@ -28,7 +29,8 @@ angular.module('app', [
 
       .state('welcome', {
         url: '/welcome',
-        templateUrl: 'modules/authentication/welcome/welcome.html'
+        templateUrl: 'modules/authentication/welcome/welcome.html',
+        controller: 'WelcomeController'
       })
 
       .state('login', {

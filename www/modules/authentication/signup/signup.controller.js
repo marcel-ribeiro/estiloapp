@@ -18,6 +18,8 @@ angular.module('signup.controller', [])
         hideOnStageChange: true
       });
 
+      user.authenticationType = "password";
+
       AuthenticationService.signupWithEmail(user)
         .then(function (userData) {
 
