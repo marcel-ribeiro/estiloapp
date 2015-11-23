@@ -40,41 +40,19 @@ angular.module('welcome.controller', [])
 
 
     $scope.loginWithGoogle = function () {
-      //if (ionic.Platform.isWebView()) {
-      //
-      //  $cordovaFacebook.login(["public_profile", "email"]).then(function (success) {
-      //
-      //    console.log(success);
-      //
-      //    FirebaseFactory.authWithOAuthToken("facebook", success.authResponse.accessToken, function (error, authData) {
-      //      if (error) {
-      //        console.log('Firebase login failed!', error);
-      //      } else {
-      //        console.log('Authenticated successfully with payload:', authData);
-      //      }
-      //    });
-      //
-      //  }, function (error) {
-      //    console.log(error);
-      //  });
-      //
-      //}
-      //else {
+      AuthenticationService.authenticateWithProvider("google")
+        .then(function (authData) {
 
-        AuthenticationService.authenticateWithProvider("google")
-          .then(function (authData) {
+          console.log("Login with google successful: ", authData);
+          $state.go(APP_DEFAULT_ROUTE, {}, {reload: true});
 
-            console.log("Login with google successful: ", authData);
-            $state.go(APP_DEFAULT_ROUTE, {}, {reload: true});
+        }).catch(function (error) {
 
-          }).catch(function (error) {
+          // Another error occurred
+          console.log("Unable to login with google: ", error);
 
-            // Another error occurred
-            console.log("Unable to login with google: ", error);
+        });
 
-          });
-
-      //}
     };
 
   });

@@ -11,8 +11,8 @@ angular.module('authentication.controller', [])
       if (authData) {
 
         updateCurrentAuthData(authData);
-
         $state.go(APP_DEFAULT_ROUTE, {}, {reload: true});
+
       } else {
 
         console.log("Not authenticated.");

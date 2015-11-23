@@ -17,6 +17,7 @@ angular.module('authentication.service', [])
      * */
     this.authenticateWithProvider = function (provider) {
       return asyncAuthenticateWithProvider(provider);
+      //return AuthenticationFactory.$authWithOAuthPopup(provider);
     };
 
     function asyncAuthenticateWithProvider(provider) {
@@ -97,23 +98,13 @@ angular.module('authentication.service', [])
      * Updates the newly created user
      * */
     var updateNewUser = function (user, userData) {
-      if (!isValidUserInfo(user)) {
-        return;
-      }
       console.log("Updating user with uid: ", userData.uid);
       return FirebaseFactory.child("users").child(userData.uid).set({
-        email: user.email,
-        name: user.name,
+        email: user.email ? user.email : null,
+        name: user.name ? user.name : null,
         authenticationType: user.authenticationType
       })
     };
-
-    /*
-     * Validates the information provided to update the user
-     * */
-    function isValidUserInfo(user) {
-      return user.email && user.name && user.authenticationType;
-    }
 
 
     /*
