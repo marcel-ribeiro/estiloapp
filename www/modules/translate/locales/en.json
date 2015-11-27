@@ -1,20 +1,6 @@
 {
   "APP_NAME": "Estilo",
 
-
-  "MENU": {
-    "TITLE": "Menu",
-    "SEARCH": "Search",
-    "TRANSLATE": "Translate",
-    "PLAYLISTS": "Playlists",
-    "LOGOUT": "Logout"
-  },
-  "TRANSLATE": {
-    "TITLE": "Hello - JSON",
-    "FOO": "This is a paragraph",
-    "LANGUAGE_LABEL": "Language",
-    "TITLE": "Translate"
-  },
   "WELCOME": {
     "TITLE": "Welcome to Estilo",
     "BUTTON_SIGNUP": "Sign Up",
@@ -47,6 +33,24 @@
     "FORM_INCOMPLETE": "Looks like your form is incomplete. Can you please double check and submit again?",
     "LOADING": "Signing Up...",
     "ERROR_TITLE": "Sign Up Error"
+  },
+  "MENU": {
+    "TITLE": "Menu",
+    "GIVE_FEEDBACK": "Give feedback",
+    "FRIENDS": "Friends",
+    "TRANSLATE": "Translate",
+    "LOGOUT": "Logout"
+  },
+  "GIVE_FEEDBACK": {
+    "TITLE": "Give feedback",
+    "BUTTON_PHOTO": "Photo",
+    "BUTTON_COMMENT": "Comment"
+  },
+  "TRANSLATE": {
+    "TITLE": "Hello - JSON",
+    "FOO": "This is a paragraph",
+    "LANGUAGE_LABEL": "Language",
+    "TITLE": "Translate"
   },
 
 

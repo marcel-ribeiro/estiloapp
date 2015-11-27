@@ -58,11 +58,11 @@ angular.module('app', [
         templateUrl: 'modules/core/menu.html'
       })
 
-      .state('app.search', {
-        url: '/search',
+      .state('app.give-feedback', {
+        url: '/give-feedback',
         views: {
           'menuContent': {
-            templateUrl: 'modules/starter/search.html',
+            templateUrl: 'modules/give-feedback/give-feedback.html',
             resolve: {
               "currentAuth": requireAuth
             }
@@ -82,12 +82,12 @@ angular.module('app', [
           }
         }
       })
-      .state('app.playlists', {
-        url: '/playlists',
+      .state('app.friends', {
+        url: '/friends',
         views: {
           'menuContent': {
-            templateUrl: 'modules/starter/playlists.html',
-            controller: 'PlaylistsController',
+            templateUrl: 'modules/starter/friends.html',
+            controller: 'FriendsController',
             resolve: {
               "currentAuth": requireAuth
             }
@@ -95,11 +95,11 @@ angular.module('app', [
         }
       })
 
-      .state('app.single', {
-        url: '/playlists/:playlistId',
+      .state('app.friend', {
+        url: '/friends/:firendId',
         views: {
           'menuContent': {
-            templateUrl: 'modules/starter/playlist.html',
+            templateUrl: 'modules/starter/friend.html',
             resolve: {
               "currentAuth": requireAuth
             }
@@ -107,7 +107,7 @@ angular.module('app', [
         }
       });
     // if none of the above states are matched, use this as the fallback
-    $urlRouterProvider.otherwise('/welcome');
+    $urlRouterProvider.otherwise('/app/give-feedback');
 
 
     function requireAuth(AuthenticationFactory) {
